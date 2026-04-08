@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+}
+
+.loader{
+    cursor: wait;
+}
+
+nav img{
+    padding-right: 2%;
+    padding-left: 1%;
+}
+
+.site {
+    width : 100%;
+}
+
+nav {
+    position: sticky;
+    top: 0; /*figer en haut de l'écran*/
+    display: flex; /*mettre sur la meme ligne*/
+    padding: 10px 0px;
+    background-color : #629e85;
+    align-items: center;
+    
+}
+
+nav button{
+    font-size: 120%;
+    display: inline-block; /* mets que le contenu du bouton*/
+    margin: 2%;
+    padding: 8px 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 4px;
+    border : none;  
+    background-color: rgb(255, 255, 255);
+}
+ 
+nav button:hover{
+    background-color: #aad4be;
+    color: white;
+}
+
+.horaire{
+    display: flex;
+    flex-direction: column;
+    
+    flex-grow: 1;
+    color: white;
+    min-width: fit-content;
+    margin-top: 10px;
+}
+
+.heure{
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    margin-right: 1px;
+    gap: 15px;
+    width: 100%;
+}
+
+#heure {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.chrono{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0px;
+    white-space: nowrap;
+}
+
+#chrono{
+    font-weight: bold;
+    min-width: 60px;
+}
+
+
+
+.segment0 { left: 5px; top: 1.25px; width: 15px; height: 0px; }
+.segment1 { left: 1.25px; top: 5px; width: 0px; height: 15px; }
+.segment2 { left: 23.75px; top: 5px; width: 0px; height: 15px; }
+.segment3 { left: 5px; top: 23.75px; width: 15px; height: 0px; }
+.segment4 { left: 1.25px; top: 27.5px; width: 0px; height: 15px; }
+.segment5 { left: 23.75px; top: 27.5px; width: 0px; height: 15px; }
+.segment6 { left: 5px; top: 46.25px; width: 15px; height: 0px; }
+
+.led {
+    position: absolute;
+    border-radius: 10px 10px 10px 10px;
+    height : 10px;
+    width : 10px;
+    /*background: #2df;*/
+}
+
+.segment {
+    position: absolute;
+    border-radius: 10px;
+    border: 2px solid #c1e3d2;
+    transition: all 0.2s linear;
+    
+}
+
+/*.shiftedClock{
+    position: absolute;
+    top:300px;
+    left:100px;
+}*/
+
+.clock > div {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 70px;
+    
+}
+
+.clock > .colon {
+    font-size: 25px;
+    width: 15px;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c1e3d2;
+    transform: translateY(-12px);
+
+}
+
+.clock{
+    align-items: center;
+    display: flex; 
+    height: 40px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.off {
+    transition: all 0.2s linear;
+    opacity: 0.1;
+}
