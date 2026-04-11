@@ -136,10 +136,83 @@ function chrono(){
 }
 // --------------------------------------------------------------------------------------------------------------
 
+//fenêtre modale
+function ouvrirModale(e) {
+    e.preventDefault();
+    const modal = document.getElementById("modal-tete");
+    modal.style.display = "flex";
+}
 
-main();
+let p_equipe = document.querySelectorAll(".f-modale");
+for (let i = 0; i < p_equipe.length; i++){
+    p_equipe[i].addEventListener("click",ouvrirModale);
+}
+
+// Bouton OUI
+document.getElementById("btn-oui").onclick = function() {
+    window.location.href = "../presentation/presentation.html";
+};
+
+// Bouton NON
+document.getElementById("btn-non").onclick = function() {
+    document.getElementById("modal-tete").style.display = "none";
+};
+
+// --------------------------------------------------------------------------------------------------------------
 
 // footer
+let nums ="";
+
+function numero(){
+    let texte = window.getSelection().toString().trim();
+    if (texte.startsWith("+33")){
+        nums = texte;
+        const modal = document.getElementById("modal-numero");
+        modal.style.display = "flex";
+        document.getElementById("texteAppel").innerText = `Si vous voulez appeler ce numéro : ${texte}, entrez le de nouveau dans le champ ci-dessous puis validez`;
+    }
+}
+
+// Bouton Valider
+document.getElementById("btn-valider").onclick = function() {;
+    let texte_sans_espace = nums.replace(/\s+/g,"");
+    let validation = document.getElementById("validation").value;
+    let validation_sans_espace = validation.replace(/\s+/g,"");
+    if (validation == nums || validation_sans_espace==texte_sans_espace){
+        console.log(`Vous appelez ce numéro : ${validation}`);
+        let audio = new Audio("../sonnerie.wav");
+        audio.play();
+        setTimeout(function(){
+            audio.pause();
+            audio.currentTime = 0;
+        },5000);
+    }
+    else if (validation == ""){
+        console.log("Erreur de saisie : le champ est vide. Veuillez entrer le numéro affiché.");
+    } else if(validation_sans_espace.length<12){
+        console.log("Erreur de saisie : il manque un ou plusieurs chiffres. Ajoutez les chiffres manquants.");
+    }
+    else if(validation_sans_espace.length>12){
+        console.log("Erreur de saisie : il y a un ou plusieurs chiffres en plus. Veuillez supprimer les chiffres en plus.");
+    }
+    else if(isNaN(validation_sans_espace)){ //s'il y a des lettres
+        console.log("Erreur de saisie : le numéro contient des lettres ou des caractères spéciales. Veuillez écrire seulement des chiffres.");
+    }
+    else {
+        console.log("Erreur de saisie : le numéro ne correspond pas au numéro attendu. Vérifiez les chiffres saisis.");
+    }
+};
+
+// Bouton Annuler
+document.getElementById("btn-annuler").onclick = function() {
+    document.getElementById("modal-numero").style.display = "none";
+};
+
+let numeros = document.getElementsByClassName("numero");
+for (let j = 0; j < numeros.length; j++){
+    numeros[j].addEventListener("copy",numero);
+}
+
 // numero tel, validation,  sonnerie + adresses 
 
 // copie element
@@ -157,9 +230,13 @@ function main(){
     for (element of document.getElementsByClassName("contact")){
         element.addEventListener("click", delay);
     }
+    /*
     for (element of document.getElementsByClassName("presentation")){
         element.addEventListener("click", delay);
     }
+    */
+   document.getElementById("btn-oui").addEventListener("click",delay);
+
     for (element of document.getElementsByClassName("produit")){
         element.addEventListener("click", delay);
     }
