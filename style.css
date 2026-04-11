@@ -30,12 +30,13 @@ body{
 }
 
 .menu-nav {
-    position: sticky;
+    position: fixed;
     top: 0; /*figer en haut de l'écran*/
     display: flex; /*mettre sur la meme ligne*/
     padding: 10px 0px;
     background-color : #629e85;
     align-items: center;
+    width: 100%;
 }
 
 .menu-nav button{
@@ -161,6 +162,10 @@ body{
 .off {
     transition: all 0.2s linear;
     opacity: 0.1;
+}
+
+.contenu-page{
+    padding-top: 120px;
 }
 
 /*-----------FENETRE MODALE--------------*/

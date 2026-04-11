@@ -148,10 +148,12 @@ for (let i = 0; i < p_equipe.length; i++){
     p_equipe[i].addEventListener("click",ouvrirModale);
 }
 
+/*
 // Bouton OUI
 document.getElementById("btn-oui").onclick = function() {
     window.location.href = "../presentation/presentation.html";
 };
+*/
 
 // Bouton NON
 document.getElementById("btn-non").onclick = function() {
@@ -235,7 +237,7 @@ function main(){
         element.addEventListener("click", delay);
     }
     */
-   document.getElementById("btn-oui").addEventListener("click",delay);
+   document.getElementById("btn-oui").addEventListener("click",delay); // le delay ne marche pas 
 
     for (element of document.getElementsByClassName("produit")){
         element.addEventListener("click", delay);
