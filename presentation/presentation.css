@@ -2,3 +2,38 @@
     background-color: #aad4be;
     color : white;
 }
+
+.presentation{
+    background-color: #aad4be;
+}
+
+.canva{
+    background-color: #aad4be;
+    border-radius: 3%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4%;
+    border : 1px solid black; /*Mettre la bordure du rectangle en noir sur une épaisseur de 1 pixel*/
+}
+
+.persos {
+    margin-left: 14%;
+    
+}
+
+button {
+    display: inline-block;
+}
+
+.edition.edit {
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.supp {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}

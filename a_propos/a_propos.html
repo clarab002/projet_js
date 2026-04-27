@@ -11,12 +11,236 @@
         <script src="a_propos.js" defer></script>
     </head>
     <body>
-        <h1>A propos</h1>
-        <button class="accueil btn-accueil">Accueil</button>
-        <button class="a_propos">À propos</button>
-        <button class="produit">Produits</button>
-        <button class="presentation">Équipe</button>
-        <button class="contact">Contacts</button>
-        
+        <!-------------------------MENU---------------------------------------->
+        <nav class="menu-nav">
+            <img class="accueil" width="90" src="../img/logo1.png">
+            <div class="site">
+                <button class="accueil btn-accueil">Accueil</button>
+                <button class="a_propos">À propos</button>
+                <button class="produit">Produits</button>
+                <button class="f-modale">Équipe</button>
+                <button class="contact">Contacts</button>
+            </div>
+
+            <div class="horaire">
+                <div class="heure">
+                    <p id="heure">Heure Paris</p>
+                    <div class="clock">
+                        <div id="hours-tens"></div>
+                        <div id="hours-units"></div>
+                        <div id="colon" class="colon">:</div>
+                        <div id="minutes-tens"></div>
+                        <div id="minutes-units"></div>
+                    </div>
+                </div>
+                <div class="chrono">
+                    <p>Vous êtes sur la page depuis : </p>
+                    <p id="chrono">00 : 00</p>
+                </div>
+            </div>
+            
+        </nav>
+        <div class="contenu-page">
+
+            <h1>A propos</h1>
+
+            <div>
+                <h2>Qui sont les Trois Plumes ?</h2>
+
+            </div>
+            
+            <div>
+                <h2>Nos Missions :</h2>
+                <div class="mission mission-1">
+                    <button class="bouton-modal bouge">Mission 1</button>
+                    <div class="contenu-modal">
+                        <div class="arriere-plan-modal bouge"></div>
+                        <div class="modal">
+                            <h3>Mission 1</h3>
+                            <img width="90" src="../img/logo1.png">
+                            <p>Cette mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                            </p>
+                        </div>
+                    </div>
+                    <p class="texte">Cette mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                    </p>
+                </div>
+
+                <div class="mission mission-2">
+                    <button class="bouton-modal bouge">Mission 2</button>
+                    <div class="contenu-modal">
+                        <div class="arriere-plan-modal bouge"></div>
+                        <div class="modal">
+                            <h3>Mission 2</h3>
+                            <img width="90" src="../img/logo1.png">
+                            <p>Cete mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                            </p>
+                        </div>
+                    </div>
+                    <p class="texte">Cete mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                    </p>
+                </div>
+                
+                <div class="mission mission-3">
+                    <button class="bouton-modal bouge">Mission 3</button>
+                    <div class="contenu-modal">
+                        <div class="arriere-plan-modal bouge"></div>
+                        <div class="modal">
+                            <h3>Mission 3</h3>
+                            <img width="90" src="../img/logo1.png">
+                            <p>Cette mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                            </p>
+                        </div>
+                    </div>
+                    <p class="texte">Cette mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                    </p>
+                </div>
+
+                <div class="mission mission-4">
+                    <button class="bouton-modal bouge">Mission 4</button>
+                    <div class="contenu-modal">
+                        <div class="arriere-plan-modal bouge"></div>
+                        <div class="modal">
+                            <h3>Mission 4</h3>
+                            <img width="90" src="../img/logo1.png">
+                            <p>Cete mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                            </p>
+                        </div>
+                    </div>
+                    <p class="texte">Cete mission a pour but de bhbdfiudifivbidbhcbiebidbhcbifiiihiui
+                                ifrheiuhfieuivhiuevieuivhiuhvuierhivuihfiurhiufhiurhfiuehufhreuihuirh
+                                hrbfruifhverebuivhiuhriuvoufhuiruh vbghjehduygegfyrgugdyudegueuygduygeduy
+                                uerfyreufguyrgyvfeeyfbcuhdhcbedbcedhucbefbceb
+                                jhebrfhebrhviebvfbhfebvhbidhbcjhbdhbchfebhebfbhfbvhfebhbdchbhedbchebf
+                                ehfvhebjvhbfehbvhjebjhbcehbdjbhebcjefc
+                    </p>
+                </div>
+            </div>
+            </br>
+            <div>
+                <h2>Notre évolution</h2>
+                <!--Création d'une frise chronologique-->
+            </div>
+
+            <div>
+                <h2>Notre vision</h2>
+                <h5>Et ce n'est que le début...</h5>
+                <!--Petits logos avec:
+                Développer notre maison d’édition à l’international
+                Publier toujours plus d’auteurs et d’histoires
+                Créer des éditions originales et immersives
+                Améliorer notre site pour une meilleure expérience
+                Construire une communauté autour de la lecture-->
+            </div>
+            <br> 
+            <br> 
+            <br> 
+            <h4>Les Trois Plumes, c'est avant tout une aventure humaine, portée par la passion des mots et l'envie de faire rêver, page après page</h4>
+        <br>
+    </div>
+    <!-------------------------FOOTER---------------------------------------->
+        <footer class="pied-de-page">
+
+            <nav class="footer-nav">
+                <ul>
+                    <li><button class="accueil btn">Accueil</button></li> 
+                    <li><button class="a_propos btn">À propos</button></li>
+                    <li><button id="produits" class="btn">Produits</button></li>
+                    <li><button class="btn f-modale">Équipe</button></li>
+                    <li><button id="contacts" class="btn">Contacts</button></li>
+                </ul>
+            </nav>
+
+            <div id="modal-tete" class="modal-arr-plan">
+                <div class="modal-contenu">
+                    <h3>Voulez-vous accéder à la présentation de l'équipe ?</h3>
+                    <button id="btn-oui" class="presentation btn-ouinon">Oui</button>
+                    <button id="btn-non" class="btn-ouinon">Non</button>
+                </div>
+            </div>
+
+            <p class="trait">_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+            
+            <table class="tableau">
+                <tr>
+                    <td class="gauche">
+                        <div class="adresse-numero">
+                            <h3>ISEN Nantes</h3>
+                            <p>Adresse : <a class="adresse" target="_blank" href="https://www.google.com/maps/place/ISEN+Ouest+-+Campus+de+Nantes/@47.2753169,-1.5081572,1011m/data=!3m1!1e3!4m6!3m5!1s0x4805efdb748453c7:0xf9cb0e917832eb00!8m2!3d47.2748664!4d-1.5050521!16s%2Fg%2F11c808d21t?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">33 Quater avenue du Champ du Manœuvre Carquefou 44470</a></p>
+                            <p class="numero">Numéro : +33 2 30 13 05 60</p>
+
+                            <h3>ISEN Brest</h3>
+                            <p>Adresse : <a class="adresse" target="_blank" href="https://www.google.com/maps/place/ISEN+Ouest+-+Campus+de+Brest/@48.4070352,-4.4977353,501m/data=!3m1!1e3!4m14!1m7!3m6!1s0x4816bbf230f791a7:0xc5ac9be0d1314c13!2sISEN+Ouest+-+Campus+de+Brest!8m2!3d48.4070554!4d-4.495554!16s%2Fg%2F1wk6z51y!3m5!1s0x4816bbf230f791a7:0xc5ac9be0d1314c13!8m2!3d48.4070554!4d-4.495554!16s%2Fg%2F1wk6z51y?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">20 rue Cuirassé Bretagne Brest 29200</a></p>
+                            <p class="numero">Numéro : +33 2 98 03 84 00</p>
+
+                            <h3>ISEN Caen</h3>
+                            <p>Adresse : <a class="adresse" target="_blank" href="https://www.google.com/maps/place/8+Av.+Croix+Gu%C3%A9rin,+14000+Caen/@49.1894191,-0.357811,629m/data=!3m1!1e3!4m6!3m5!1s0x480a42a4580dfe0d:0xf30aa984549cfa0!8m2!3d49.1892504!4d-0.3553326!16s%2Fg%2F11crs6ngyc?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">8 avenue Croix Guérin Caen 14000</a></p>
+                            <p class="numero">Numéro : +33 2 30 31 03 20</p>
+                            
+                            <h3>ISEN Rennes</h3>
+                            <p>Adresse : <a class="adresse" target="_blank" href="https://www.google.com/maps/place/ISEN+Rennes/@48.1038979,-1.691041,504m/data=!3m1!1e3!4m6!3m5!1s0x480edec377e31977:0xd0e42980edd9ebd3!8m2!3d48.1035791!4d-1.6888523!16s%2Fg%2F11dyyn059q?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">22 boulevard Saint-Conwoïon Rennes 35000</a></p>
+                            <p class="numero">Numéro : +33 2 30 13 02 50</p>
+                        </div>
+                    </td>
+
+                    <td class="droite">
+                        <a href="https://isen-ouest.fr/" target="_blank"><img src="../img/isen.png" width="30%"></a>
+                        <p class="trait">____________________________________________________________________________________________________________</p>
+                        <h1>Suivez-nous</h1>
+                        <a href="https://fr.linkedin.com/company/isen-yncrea-ouest" target="_blank"><img src="../img/linkedin.png" width="25px"></a>
+                        <a href="https://www.youtube.com/ISENOuest" target="_blank"><img src="../img/youtube.png" width="35px"></a>
+                        <a href="https://www.instagram.com/isennantes/" target="_blank"><img src="../img/instagram.png" width="30px"></a>
+                        <a href="https://www.facebook.com/ISEN.Ouest/" target="_blank"><img src="../img/facebook.png" width="15px"></a>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="modal-numero" class="modal-arr-plan">
+                <div class="modal-contenu">
+                    <h3>Validation de l'appel</h3>
+                    <p id="texteAppel"></p>
+                    <input type="text" id="validation" placeholder="+33 X XX XX XX XX">
+                    <br>
+                    <button id="btn-valider">Valider</button>
+                    <button id="btn-annuler">Annuler</button>
+                </div>
+            </div>
+
+        </footer>
     </body>
 </html>

@@ -2,3 +2,100 @@
     background-color: #aad4be;
     color : white;
 }
+
+h1, h2, h4 {
+    padding: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h5 {
+    padding-left: 13px;
+}
+
+h4 {
+    margin: 0px 100px;
+    font-style: italic;
+}
+
+h1, h4 {
+    text-align: center;
+}
+
+.a_propos{
+    background-color: #aad4be;
+}
+
+/*------------- CONFIGURATION MODAL -------------*/
+
+/*boutons mission*/
+.bouton-modal {
+    padding: 10px 10px;
+    margin: 20px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/*texte affiché en entier sur le site*/
+.texte {
+    margin-left: 20px;
+}
+
+/*qui comprend la zone grisée + la fenetre modale*/
+.contenu-modal {
+    visibility: hidden; /*on ne veut pas le montrer au tout début*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: visibility 0.4s; /*permettra de faire une animation fluide*/
+}
+.contenu-modal.active { /*permettra de le montrer avec le js quand on appuiera sur le bouton*/
+    visibility: visible;
+}
+
+/*zone grisée en fond*/
+.arriere-plan-modal {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3; /*d3 pour régler l'opacité*/
+    transition: opacity 0.4s;
+}
+.contenu-modal.active .arriere-plan-modal {
+    opacity: 1;
+}
+
+/*la nouvelle fenetre placée au centre*/
+.modal {
+    opacity: 0;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*permet de grader le modal centré*/
+    transition: opacity 0.4s;
+}
+.contenu-modal.active .modal {
+    opacity: 1;
+}
+
+.modal h3 {
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500; /*pour l'affiner*/
+}
+
+.modal p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*------------- FRISE CHRONOLOGIQUE -------------*/
