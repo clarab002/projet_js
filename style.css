@@ -42,7 +42,7 @@ body{
 .menu-nav button{
     font-size: 120%;
     display: inline-block; /* mets que le contenu du bouton*/
-    margin: 3%;
+    margin: 2.5%;
     padding: 10px 30px;
     margin-top: 1%;
     margin-bottom: 1%;
