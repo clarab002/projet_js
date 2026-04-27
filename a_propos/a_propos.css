@@ -21,8 +21,8 @@ h1, h4 {
     text-align: center;
 }
 
-.a_propos{
-    background-color: #aad4be;
+.contenu-page{
+    padding-left: 0;
 }
 
 /*------------- CONFIGURATION MODAL -------------*/
