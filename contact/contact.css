@@ -2,3 +2,68 @@
     background-color: #aad4be;
     color : white;
 }
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.groupe-saisie {
+    margin-bottom: 15px;
+}
+
+/* Le texte d'erreur est rouge et possède une petite marge */
+.message-erreur {
+    color: #629e85;
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: none; /* Sera géré par le JS */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#btn-envoyer {
+    padding: 10px 25px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    float: right;
+    transition: background-color 0.3s;
+}
+
+/* Style pour centrer les boutons dans la modale */
+.choix-jeu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#resultat-combat, #messages{
+    margin-top: 15px; 
+    font-weight: bold;
+}
+
+.contenu-page{
+    padding-bottom: 20px;
+}
+
+textarea {
+  max-height: 400px;
+  min-height: 17px;
+  max-width: 600px;
+  min-width: 600px;
+}
+
+.modale{
+    max-width: 600px;
+}

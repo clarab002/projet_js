@@ -60,6 +60,7 @@ h1, h4 {
 .arriere-plan-modal {
     opacity: 0;
     position: absolute;
+    padding: 0;
     width: 100%;
     height: 100%;
     background: #333333d3; /*d3 pour régler l'opacité*/

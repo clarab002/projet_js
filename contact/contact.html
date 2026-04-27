@@ -11,12 +11,76 @@
         <script src="contact.js" defer></script>
     </head>
     <body>
-        <h1>Contact</h1>
-        <button class="accueil btn-accueil">Accueil</button>
-        <button class="a_propos">À propos</button>
-        <button class="produit">Produits</button>
-        <button class="presentation">Équipe</button>
-        <button class="contact">Contacts</button>
+        <!-------------------------MENU---------------------------------------->
+        <nav class="menu-nav">
+            <img class="accueil" width="90" src="../img/logo1.png">
+            <div class="site">
+                <button class="accueil btn-accueil">Accueil</button>
+                <button class="a_propos">À propos</button>
+                <button class="produit">Produits</button>
+                <button class="f-modale">Équipe</button>
+                <button class="contact">Contacts</button>
+            </div>
+
+            <div class="horaire">
+                <div class="heure">
+                    <p id="heure">Heure Paris</p>
+                    <div class="clock">
+                        <div id="hours-tens"></div>
+                        <div id="hours-units"></div>
+                        <div id="colon" class="colon">:</div>
+                        <div id="minutes-tens"></div>
+                        <div id="minutes-units"></div>
+                    </div>
+                </div>
+                <div class="chrono">
+                    <p>Vous êtes sur la page depuis : </p>
+                    <p id="chrono">00 : 00</p>
+                </div>
+            </div>
+            
+        </nav>
+
+        <!----------------------------------------------------------------->
+        <div class="contenu-page">
+            <div class="form-container">
+                <h2>Contactez le responsable de l'équipe</h2>
+                <p class="subtitle">(PHILLIPOT Amira - amira.philippot@isen-ouest.yncrea.fr)</p>
+                
+                <form id="contactForm" novalidate>
+                    <div class="groupe-saisie">
+                        <input type="text" id="nom" placeholder="Prénom Nom" required>
+                        <p class="message-erreur" id="err-nom">Format : Prénom Nom (2 mots séparés par un espace)</p>
+                    </div>
+                    
+                    <div class="groupe-saisie">
+                        <input type="email" id="email" placeholder="email@example.com" required>
+                        <p class="message-erreur" id="err-email">L'email doit contenir @ et un point</p>
+                    </div>
+                    
+                    <div class="groupe-saisie">
+                        <textarea id="message" placeholder="Votre message (20 à 1000 caractères)" required></textarea>
+                        <p class="message-erreur" id="err-message">Entre 20 et 1000 caractères</p>
+                    </div>
+                    
+                    <button type="submit" id="btn-envoyer" disabled>Envoyer</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="modal-jeu" class="modal-arr-plan">
+            <div class="modal-contenu modale">
+                <h3>Défi : Battez l'ordinateur pour envoyer votre message !</h3>
+                <div class="choix-jeu">
+                    <button type="button" class="btn-ouinon" id="pierre">🪨 Pierre</button>
+                    <button type="button" class="btn-ouinon" id="feuille">📄 Feuille</button>
+                    <button type="button" class="btn-ouinon" id="ciseaux">✂️ Ciseaux</button>
+                </div>
+                <p id="resultat-combat" ></p>
+                <p id="messages"></p>
+            </div>
+        </div>
+
         <!-------------------------FOOTER---------------------------------------->
         <footer class="pied-de-page">
 
@@ -75,7 +139,7 @@
             </table>
 
             <div id="modal-numero" class="modal-arr-plan">
-                <div class="modal-contenu">
+                <div class="modal-contenu" >
                     <h3>Validation de l'appel</h3>
                     <p id="texteAppel"></p>
                     <input type="text" id="validation" placeholder="+33 X XX XX XX XX">
