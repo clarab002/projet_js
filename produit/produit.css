@@ -220,7 +220,7 @@ html{
     left: 50%;
     transform: translateX(-50%);
     z-index: 2000;
-    background-color: lightblue;
+    background-color: #AAD4BE;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     display: none;

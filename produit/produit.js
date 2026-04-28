@@ -74,7 +74,7 @@ function afficherbandeauachat(context){
     context.beginPath();
     context.arc(150,70,40,Math.PI,-Math.PI); //on dessine un cercle
     context.lineWidth = 6; //avec des bords de taille 6
-    context.fillStyle = "lightblue" //et le cercle rempli en bleu
+    context.fillStyle = "#AAD4BE" //et le cercle rempli en bleu
     context.strokeStyle = "white" //bord en blanc
     context.stroke(); //on dessine les bords
     context.fill(); //on remplie le cercle
