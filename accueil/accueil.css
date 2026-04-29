@@ -1,4 +1,69 @@
+@font-face{
+    font-family: "Banda";
+    src: url(../font/BandaRegular.ttf.woff);
+}
+
 .menu-nav .btn-accueil{
     background-color: #aad4be;
-    color : white; /* a changer*/
+    color : white;
+}
+
+.contenu-page{
+    padding-left: 0;
+}
+
+.banniere{
+    opacity: 10.5;
+}
+
+#banniere{
+    background-image: url(img/bann5.jpg);
+    height: 452px;
+}
+
+#txt-bann{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 50px;
+    font-family: "Banda";
+    margin-bottom: 0px;
+}
+
+#txt2-bann{
+    font-size: 13px;
+    color: white;
+    font-family: "Banda";
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+#img-bann{
+    padding-top: 45px;
+    display: block;
+    margin: auto;
+}
+
+#img-bann:hover{
+    transform: scale(2);
+}
+
+#btn-bann{
+    background: transparent;
+    border-color: white;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    border: solid;
+}
+
+#btn-bann:hover{
+    border-color: #aad4be;
+    color: #aad4be;
+    cursor: pointer;
+    border : solid;
 }
