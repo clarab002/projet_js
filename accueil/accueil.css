@@ -45,7 +45,7 @@
     margin: auto;
 }
 
-#img-bann:hover{
+.zoom{
     transform: scale(2);
 }
 
