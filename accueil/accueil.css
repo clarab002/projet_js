@@ -3,6 +3,16 @@
     src: url(../font/BandaRegular.ttf.woff);
 }
 
+@font-face {
+    font-family: "Story script";
+    src: url(../font/Story_Script/StoryScript-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Playwrite Norge";
+    src: url(../font/Playwrite_NO/PlaywriteNO-VariableFont_wght.ttf);
+}
+
 .menu-nav .btn-accueil{
     background-color: #aad4be;
     color : white;
@@ -66,4 +76,21 @@
     color: #aad4be;
     cursor: pointer;
     border : solid;
+}
+
+#slogan{
+    text-align: center;
+    font-size: 25px;
+    color: #629e85;
+    font-family: "Playwrite Norge";
+}
+
+.droite{
+    
+    transition: transform 2s;
+}
+
+.gauche{
+    transform: translate(0);
+    transition: transform 2s;
 }
