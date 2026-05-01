@@ -26,109 +26,53 @@ function groupe_filtres(classe_tous,classe_item){
 groupe_filtres("tous-theme","item-theme");
 groupe_filtres("tous-date","item-date");
 
+//application des filtres en même temps
+function filtres(){
+    let recherche = document.getElementById("recherche-titre").value.toLowerCase();
 
-// filtre thèmes
-function filtrerthemes(){
-    let checktous = document.querySelector(".tous-theme");
-    let checkitems = document.querySelectorAll(".item-theme");
-    let themes = ["romance", "fantastique", "science-fiction", "policier", "manga"];
+    let toustheme = document.querySelector(".tous-theme").checked;
+    let themescoches = [];
+    document.querySelectorAll(".item-theme").forEach(item => {
+        if (item.checked) themescoches.push(item.value);
+    });
 
-    if (checktous.checked){
-        themes.forEach(theme => {
-            let section = document.querySelector("." + theme);
-            if (section) {
-                section.style.display = "block";
-            }
-        });
-    } else {
-        checkitems.forEach(item => {
-            let section = document.querySelector("." + item.value);
-            if (section) {
-                if (item.checked) {
-                    section.style.display = "block";
-                } else {
-                    section.style.display = "none";
-                }
-            }
-        });
-    }
-}
+    let prixmax = parseFloat(document.getElementById("prix-max").value);
+    let auteurselection = document.getElementById("selection-auteur").value;
 
-document.querySelectorAll(".filtre-theme input").forEach( input => {
-    input.addEventListener("change", filtrerthemes);
-});
-
-//filtre titre
-document.getElementById("recherche-titre").addEventListener("input", function(){
-    let recherche = this.value.toLowerCase();
+    let tousdate = document.querySelector(".tous-date").checked;
+    let datescoches = [];
+    document.querySelectorAll(".item-date").forEach(item => {
+        if (item.checked) datescoches.push(item.value);
+    });
 
     document.querySelectorAll(".carte").forEach(carte => {
         let titre = carte.querySelector(".txt-titre").textContent.toLowerCase();
-        if (titre.includes(recherche)) {
-            carte.style.display = "flex";
-        } else {
-            carte.style.display = "none";
-        }
-    });
-    titresectionvisible();
-});
-
-//filtre auteur
-document.getElementById("selection-auteur").addEventListener("change", function(){
-    let auteur = this.value;
-
-    document.querySelectorAll(".carte").forEach(carte => {
-        if (auteur === "Tous" || carte.getAttribute("data-auteur") === auteur) {
-            carte.style.display = "flex";
-        } else {
-            carte.style.display = "none";
-        }
-    });
-    titresectionvisible();
-});
-
-//filtre prix
-document.getElementById("prix-max").addEventListener("input", function(){
-    document.getElementById("valeur-prix").textContent = this.value;
-    let prixMax = parseFloat(this.value);
-
-    document.querySelectorAll(".carte").forEach(carte => {
-        let prix = parseFloat(carte.getAttribute("data-prix").replace(",", "."));
-        if (prix <= prixMax) {
-            carte.style.display = "flex";
-        } else {
-            carte.style.display = "none";
-        }
-    });
-    titresectionvisible();
-});
-
-//filtre date
-function filtrerdates(){
-    let checktous = document.querySelector(".tous-date");
-    let checkitems = document.querySelectorAll(".item-date");
-    
-    document.querySelectorAll(".carte").forEach(carte => {
+        let theme = carte.getAttribute("data-theme");
+        let prix = parseFloat(carte.getAttribute("data-prix"));
+        let auteur = carte.getAttribute("data-auteur");
         let date = carte.getAttribute("data-date");
-        if (checktous.checked){
-            carte.style.display = "flex";
-            return;
-        }
-        
-        let visble = false ; 
-        checkitems.forEach(item => {   
-            if(item.checked && item.value === date){
-                visble = true;
-            }
-        });
-        carte.style.display = visble ? "flex" : "none";
+
+        let oktitre = titre.includes(recherche);
+        let oktheme = toustheme || themescoches.includes(theme);
+        let okprix = prix <= prixmax;
+        let okauteur = auteurselection === "Tous" || auteur === auteurselection;
+        let okdate = tousdate || datescoches.includes(date);
+
+        carte.style.display = (oktitre && oktheme && okprix && okauteur && okdate) ? "flex" : "none";
     });
     titresectionvisible();
 }
 
-document.querySelectorAll(".filtre-date input").forEach( input => {
-    input.addEventListener("change", filtrerdates);
+document.getElementById("recherche-titre").addEventListener("input",filtres);
+document.querySelectorAll(".filtre-theme input").forEach( input => {
+    input.addEventListener("change", filtres);
 });
+document.getElementById("prix-max").addEventListener("input",filtres);
+document.getElementById("selection-auteur").addEventListener("change", filtres);
+document.querySelectorAll(".filtre-date input").forEach( input => {
+    input.addEventListener("change", filtres);
+});
+
 
 //visibilité section
 function titresectionvisible(){
