@@ -1,9 +1,9 @@
-// liste produits +  bouton acheter -> clic = bandeau + smiley
-
+// mise à jour prix affiché
 document.getElementById("prix-max").addEventListener("input", function(){
     document.getElementById("valeur-prix").textContent = document.getElementById("prix-max").value;
 })
 
+// gestion du tous et des autres quand ils sont checked
 function groupe_filtres(classe_tous,classe_item){
     let checktous = document.querySelector("." + classe_tous);
     let checkitems = document.querySelectorAll("." + classe_item);
@@ -26,6 +26,8 @@ function groupe_filtres(classe_tous,classe_item){
 groupe_filtres("tous-theme","item-theme");
 groupe_filtres("tous-date","item-date");
 
+
+// filtre thèmes
 function filtrerthemes(){
     let checktous = document.querySelector(".tous-theme");
     let checkitems = document.querySelectorAll(".item-theme");
@@ -56,12 +58,100 @@ document.querySelectorAll(".filtre-theme input").forEach( input => {
     input.addEventListener("change", filtrerthemes);
 });
 
+//filtre titre
+document.getElementById("recherche-titre").addEventListener("input", function(){
+    let recherche = this.value.toLowerCase();
+
+    document.querySelectorAll(".carte").forEach(carte => {
+        let titre = carte.querySelector(".txt-titre").textContent.toLowerCase();
+        if (titre.includes(recherche)) {
+            carte.style.display = "flex";
+        } else {
+            carte.style.display = "none";
+        }
+    });
+    titresectionvisible();
+});
+
+//filtre auteur
+document.getElementById("selection-auteur").addEventListener("change", function(){
+    let auteur = this.value;
+
+    document.querySelectorAll(".carte").forEach(carte => {
+        if (auteur === "Tous" || carte.getAttribute("data-auteur") === auteur) {
+            carte.style.display = "flex";
+        } else {
+            carte.style.display = "none";
+        }
+    });
+    titresectionvisible();
+});
+
+//filtre prix
+document.getElementById("prix-max").addEventListener("input", function(){
+    document.getElementById("valeur-prix").textContent = this.value;
+    let prixMax = parseFloat(this.value);
+
+    document.querySelectorAll(".carte").forEach(carte => {
+        let prix = parseFloat(carte.getAttribute("data-prix").replace(",", "."));
+        if (prix <= prixMax) {
+            carte.style.display = "flex";
+        } else {
+            carte.style.display = "none";
+        }
+    });
+    titresectionvisible();
+});
+
+//filtre date
+function filtrerdates(){
+    let checktous = document.querySelector(".tous-date");
+    let checkitems = document.querySelectorAll(".item-date");
+    
+    document.querySelectorAll(".carte").forEach(carte => {
+        let date = carte.getAttribute("data-date");
+        if (checktous.checked){
+            carte.style.display = "flex";
+            return;
+        }
+        
+        let visble = false ; 
+        checkitems.forEach(item => {   
+            if(item.checked && item.value === date){
+                visble = true;
+            }
+        });
+        carte.style.display = visble ? "flex" : "none";
+    });
+    titresectionvisible();
+}
+
+document.querySelectorAll(".filtre-date input").forEach( input => {
+    input.addEventListener("change", filtrerdates);
+});
+
+//visibilité section
+function titresectionvisible(){
+    let sections = ["romance", "fantastique", "science-fiction", "policier", "manga"];
+
+    sections.forEach(theme => {
+        let section = document.querySelector("." + theme);
+
+        let cartes = section.querySelectorAll(".carte");
+        let aumoinsune = Array.from(cartes).some(carte => carte.style.display !== "none");
+        section.style.display = aumoinsune ? "block" : "none";
+    })
+}
+
+
+//image qui change au clic
 document.querySelectorAll(".images").forEach(image => {
     image.addEventListener("click",function(){
         this.classList.toggle("retourner");
     });
 });
 
+//bandeau achat
 function get2DContext(id){
     let canvas = document.getElementById(id);
     let context = canvas.getContext("2d");
@@ -115,3 +205,21 @@ document.querySelectorAll(".panier").forEach(achat => {
         },3000);
     });
 });
+
+//fenêtre modale
+document.querySelectorAll(".modale").forEach(function(element) {
+    element.addEventListener("click", function(e) {
+        e.preventDefault();
+        // On récupère le résumé de la carte cliquée
+        let resume = this.getAttribute("data-resume");
+        // On l'injecte dans la modale
+        document.getElementById("contenu-resume").textContent = resume;
+        document.getElementById("modal-livre").style.display = "flex";
+    });
+});
+
+//fermeture fenêtre modale
+document.querySelector(".fermeture").onclick = function() {
+    document.getElementById("modal-livre").style.display = "none";
+};
+
