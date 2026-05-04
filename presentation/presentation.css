@@ -10,10 +10,6 @@
     z-index: 9999; /*pour etre sur que rien ne passe sur la barre de navigation*/
 }
 
-.presentation{
-    background-color: #aad4be;
-}
-
 /*aesthétique boutons et cartes*/
 
 .edition {
@@ -65,6 +61,15 @@
     background-color: #c9ecdafc;
 }
 
+.edit{
+    text-align: center;
+    opacity: 0;
+}
+.edit.active{
+    opacity: 1;
+    
+}
+
 /*---------------------------------------------------------*/
 
 .texte-site, .auteurs {
@@ -89,6 +94,13 @@
 }
 
 
+.cercle{
+    background-image: url("imgPresentation/profil.avif");
+    background-size: 153px;
+    background-position: center;
+    background-position-y: 12%;
+    clip-path: circle(70px at 125px 100px);
+}
 
 #perso1 {
     background-image: url("../img/logo1.png");

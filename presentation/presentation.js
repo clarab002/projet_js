@@ -32,7 +32,7 @@ function grattage(canvas, context){
 
         context.globalCompositeOperation = "destination-out";
         context.beginPath();
-        context.arc(x, y, 18, 0, Math.PI*2);
+        context.arc(x, y, 14, 0, Math.PI*2);
         context.fill();
     })
 }
@@ -43,6 +43,7 @@ let mode_edition = false; //savoir si le mode edition est activé ou non
 
 const edit = document.querySelector(".edition"); //s'occupe du bouton edit
 const ajouter = document.querySelector(".addMember"); //s'occupe du bouton ajouter un membre
+const phrase = document.querySelector(".edit");
 
 //Cacher le bouton ajouter un membre
 ajouter.style.display = "none";
@@ -95,6 +96,8 @@ function activerModeEdition(){
     mode_edition = true;
     //pour changer l'apparence du bouton en lui ajoutant la classe active pour le css
     edit.classList.add("active");
+    phrase.classList.add("active");
+    edit.textContent = "Exit";
     //pour afficher le bouton ajouter un membre
     ajouter.style.display = "inline-block";
     //rendre le texte modifiable
@@ -111,7 +114,9 @@ function desactiverModeEdition(){
 
     //Rechanger le style du bouton edition puisqu'on n'est plus dans le mode edition
     edit.classList.remove("active");
-
+    phrase.classList.remove("active");
+    edit.textContent = "Edit";
+    
     //Cacher le bouton ajouter un membre
     ajouter.style.display = "none";
 
@@ -136,10 +141,17 @@ function ajouterMembre(){
 
     //ajout de l'id pour travailler sur l'intérieur de la carte
     const id = "perso" + (document.querySelectorAll(".carte").length + 1);
+    //
     nouvelleCarte.innerHTML = `
-    <canvas class="canva" id="${id}" width="250" height="350"></canvas>
+    <div class="cercle">
+        <canvas class="canva" id="${id}" width="250" height="350"></canvas>
+    </div>
     <p class="texte">Nouveau Membre</p>
     `;
+
+ 
+    
+    
 
     //on ajoute tout ça pour le DOM
     document.querySelector(".persos").appendChild(nouvelleCarte);
