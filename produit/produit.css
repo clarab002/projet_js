@@ -200,7 +200,6 @@ html{
     border-radius: 5px;
     outline: none;
     font-size: 14px;
-    appearance: none;
     background-color: white;
     cursor: pointer;
 }

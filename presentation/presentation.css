@@ -10,10 +10,6 @@
     z-index: 9999; /*pour etre sur que rien ne passe sur la barre de navigation*/
 }
 
-.presentation{
-    background-color: #aad4be;
-}
-
 /*aesthétique boutons et cartes*/
 
 .edition {
@@ -88,8 +84,6 @@
     flex-wrap: wrap;
 }
 
-
-
 #perso1 {
     background-image: url("../img/logo1.png");
     background-size: 140px;
@@ -113,7 +107,6 @@
     background-position-y: 10%;
     clip-path: circle(70px at 125px 100px);
 }
-
 
 button {
     display: inline-block;
