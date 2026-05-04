@@ -70,6 +70,21 @@
     
 }
 
+.supprimer{
+    border: none;
+    position: relative;
+    right: -100px;
+    background-color: transparent;
+    background-image: url("img/poubelles-noires-fermees.png");
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+}
+.supprimer:hover{
+    background-image: url("img/poubelles-noires-ouvertes.png");
+}
+
+
 /*---------------------------------------------------------*/
 
 .texte-site, .auteurs {
