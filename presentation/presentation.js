@@ -39,23 +39,145 @@ function grattage(canvas, context){
 
 //-----------------------------------------------------------------------------------------
 // MODE EDITION
+let mode_edition = false; //savoir si le mode edition est activé ou non
 
-//Acitver le mode edition
-function activerMode(){
-    edit = true;
-    edit.classList.add("edit");
+const edit = document.querySelector(".edition"); //s'occupe du bouton edit
+const ajouter = document.querySelector(".addMember"); //s'occupe du bouton ajouter un membre
 
-    //rendre les noms modifiables
-    document.querySelectorAll(".nom").forEach(nom => {
-        
-    })
+//Cacher le bouton ajouter un membre
+ajouter.style.display = "none";
 
-    //ajouter un bouton suppression sur chaque carte
-    
+//Demande d'accès
+function demanderAcces(){
+    const utilisateur = prompt("Nom d'utilisateur : ") //nom pour y accéder: admin
+    if (utilisateur !== "admin"){
+        alert("Nom incorrect");
+        return false; //accès refusé
+    }
+    //même chose pour le mot de passe (mdp) qui est: admin_pwd
+    const mdp = prompt("Mot de passe : ") 
+    if (mdp !== "admin_pwd"){
+        alert("Mot de passe incorrect");
+        return false; //accès refusé
+    }
+
+    alert("Vous êtes maintenant sur le mode édition. Vous pouvez maintenant faire des modifications");
+    return true; //accès autorisé
 }
 
-//-----------------------------------------------------------------------------------------
+//Modification des textes comportants la classe texte
+function modifierTexte(){
+    document.querySelectorAll(".texte").forEach(texte => {
+        //contentEditable : attribut énuméré qui indique si l'élément doit être éditable par l'utilisateur
+        texte.contentEditable = true;
+    });
+}
+
+//créer un bouton supprimer pour chaque carte
+function boutonSupp(carte) {
+    const bouton = document.createElement("button");
+    bouton.textContent = "Supprimer";
+    bouton.classList.add("supprimer");
+
+    //Utilisation du bouton pour supprimer toute la carte apportée en paramètre dès qu'on clique dessus
+    bouton.addEventListener("click", function() {
+        if (confirm("Voulez-vous supprimer ce membre ?")){
+            carte.remove();
+        }
+    });
+
+    //comme on a créer un bouton il faut l'ajouter dans le DOM
+    carte.appendChild(bouton);
+}
+
+//Activer le mode édition
+function activerModeEdition(){
+    mode_edition = true;
+    //pour changer l'apparence du bouton en lui ajoutant la classe active pour le css
+    edit.classList.add("active");
+    //pour afficher le bouton ajouter un membre
+    ajouter.style.display = "inline-block";
+    //rendre le texte modifiable
+    modifierTexte();
+    //ajouter un bouton pour supprimer une carte
+    document.querySelectorAll(".carte").forEach(carte =>{
+        boutonSupp(carte);
+    });
+}
+
+//Désactiver le mode édition
+function desactiverModeEdition(){
+    mode_edition = false;
+
+    //Rechanger le style du bouton edition puisqu'on n'est plus dans le mode edition
+    edit.classList.remove("active");
+
+    //Cacher le bouton ajouter un membre
+    ajouter.style.display = "none";
+
+    //rendre le texte non modifiable
+    document.querySelectorAll(".texte").forEach(texte => {
+        //contentEditable : attribut énuméré qui indique si l'élément doit être éditable par l'utilisateur
+        texte.contentEditable = false;
+    });
+
+    //Retirer les boutons supprimer
+    document.querySelectorAll(".supprimer").forEach(boutons => {
+        //retirer les boutons dont la classe est supprimer
+        boutons.remove();
+    });
+}
+
+//ajouter un membre
+function ajouterMembre(){
+    //On créé un nouvel espace exactement comme les autres cartes
+    const nouvelleCarte = document.createElement("div");
+    nouvelleCarte.classList.add("carte");
+
+    //ajout de l'id pour travailler sur l'intérieur de la carte
+    const id = "perso" + (document.querySelectorAll(".carte").length + 1);
+    nouvelleCarte.innerHTML = `
+    <canvas class="canva" id="${id}" width="250" height="350"></canvas>
+    <p class="texte">Nouveau Membre</p>
+    `;
+
+    //on ajoute tout ça pour le DOM
+    document.querySelector(".persos").appendChild(nouvelleCarte);
+
+    //on rend son texte modifiable car n'était pas généré lorsqu'on venait juste d'entre dans le mode édition
+    modifierTexte();
+    //ajout du bouton supprimer
+    boutonSupp(nouvelleCarte);
+
+    //initalisation du canva pour le grattage sur la carte (exactement comme dans le main)
+    let context = get2DContext(id); //le canva du dessin
+    canvasApp(context);
+    grattage(document.getElementById(id), context);
+}
+
+//clic sur le mode edition
+edit.addEventListener("click", function(){
+    if(mode_edition){
+        if (confirm("Voulez-vous quitter le mode édition ?")){
+            desactiverModeEdition();
+        }
+        return;
+    }
+    if(demanderAcces()){
+        activerModeEdition();
+    }
+});
+
+//clic sur ajouter un membre
+ajouter.addEventListener("click", function(){
+    if(mode_edition){
+        ajouterMembre();
+    }
+});
+
+//-----------------------------------------------------------------------------------
 function main(){
+    //Partie Grattage et canva
     let context = get2DContext("perso1"); //le canva du dessin
     canvasApp(context);
     grattage(document.getElementById("perso1"), context);
@@ -69,19 +191,8 @@ function main(){
     grattage(document.getElementById("perso3"), context2);
 
     //-----------------------------------------------------------------
-    let mode_edition = false; //savoir si le mode edition est activé ou non
-
-    const edit = document.getElementsByClassName("edition");
-    const ajouter = document.getElementsByClassName("addMember");
 
     
-    //Clic sur le bouton d'édition
-    edit.addEventListener("click", function(){
-    //pour quitter le mode édition
-    if (mode_edition == true){
-        
-    }
-})
 }
 
 main();

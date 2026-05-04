@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Présentation de l'équipe</title>
-        <link id="icon" rel="icon" href="../img/logo1.png">
+        <link id="icon" rel="icon" href="../img/logo.png">
         <link rel="stylesheet" href="../style.css">
         <link rel="stylesheet" href="presentation.css">
         <script src="../global.js" defer></script>
@@ -44,18 +44,34 @@
         <br>
         <div class="contenu-page">
             <button class="edition">Edit</button>
-            
-            <div class="persos carte"> <!--SOUCI POUR METTRE L'IMAGE EN DESSOUS-->
-                <!--<img src="../img/logo1.png" width="100" class="photo">-->
-                <canvas class="canva" id="perso1" height="350" width="250"></canvas>
-                <!--<img src="../img/logo1.png" width="100" class="photo">-->
-                <canvas class="canva" id="perso2" height="350" width="250"></canvas>
-                <!--<img src="../img/logo1.png" width="100" class="photo">-->
-                <canvas class="canva" id="perso3" height="350" width="250"></canvas>
+            <br><br><br>
+            <div class="persos">
+                <div class="carte">
+                    <canvas class="canva" id="perso1" height="350" width="250"></canvas>
+                    <p class="texte">PHILIPPOT Amira</p>
+                </div>
+                <div class="carte">
+                    <canvas class="canva" id="perso2" height="350" width="250"></canvas>
+                    <p class="texte">DESGRANGES Clara</p>
+                </div>
+                <div class="carte">
+                    <canvas class="canva" id="perso3" height="350" width="250"></canvas>
+                    <p class="texte">BONNEL Clara</p>
+                </div>                
             </div>  
-
+            <br><br>
             <button class="addMember">Ajouter un membre</button>
-            <p class="nom">Alice</p>
+        </div>
+        <br><br>
+        <p class="texte-site">Etant une maison d'édition à succès, nous accueillons de nombreux auteurs et autrices : </p>
+        <br>
+        <div class="auteurs">
+            
+            <div id="auteur1">
+                <img src="../img/logo1.png" width="120" height="120">
+                <br>
+                <p class="texte">Morgane Moncomble</p>
+            </div>
         </div>
         <!-------------------------FOOTER---------------------------------------->
         <footer class="pied-de-page">
