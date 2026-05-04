@@ -145,7 +145,7 @@ function ajouterMembre(){
     //
     nouvelleCarte.innerHTML = `
     <div class="cercle">
-        <canvas class="canva" id="${id}" width="250" height="350"></canvas>
+        <canvas class="canva prevention-copie" id="${id}" width="250" height="350"></canvas>
     </div>
     <p class="texte">Nouveau Membre</p>
     `;
