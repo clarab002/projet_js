@@ -77,7 +77,6 @@ function modifierTexte(){
 //créer un bouton supprimer pour chaque carte
 function boutonSupp(carte) {
     const bouton = document.createElement("button");
-    bouton.textContent = "Supprimer";
     bouton.classList.add("supprimer");
 
     //Utilisation du bouton pour supprimer toute la carte apportée en paramètre dès qu'on clique dessus
