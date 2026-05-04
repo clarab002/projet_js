@@ -210,23 +210,24 @@ for (let j = 0; j < numeros.length; j++){
 // erreurs
 
 function main(){
-    // REGLES SUR LE PLAGIAT 
+    // REGLES SUR LE PLAGIAT  
     document.addEventListener("copy", function(){
         console.warn("Rappel: Le plagiat est interdit. Pensez à citer les sources et à respecter les droits d'auteurs.");
         console.log(" ");
-        console.warn("Article sur le plagiat: Article L335-2 - Code de la propriété intellectuelle");
-        console.warn(" Toute édition d'écrits, de composition musicale, de dessin, de peinture ou de toute autre production, imprimée ou gravée en entier ou en partie, au mépris des lois et règlements relatifs à la propriété des auteurs, est une contrefaçon et toute contrefaçon est un délit. La contrefaçon en France d'ouvrages publiés en France ou à l'étranger est punie de trois ans d'emprisonnement et de 300 000 euros d'amende. Seront punis des mêmes peines le débit, l'exportation, l'importation, le transbordement ou la détention aux fins précitées des ouvrages contrefaisants. Lorsque les délits prévus par le présent article ont été commis en bande organisée, les peines sont portées à cinq ans d'emprisonnement et à 500 000 euros d'amende.")
+        console.warn("Article L335-2 - Code de la propriété intellectuelle");
+        console.warn(" Toute édition d'écrits, de composition musicale, de dessin, de peinture ou de toute autre production, imprimée ou gravée en entier ou en partie, au mépris des lois et règlements relatifs à la propriété des auteurs, est une contrefaçon et toute contrefaçon est un délit. La contrefaçon en France d'ouvrages publiés en France ou à l'étranger est punie de trois ans d'emprisonnement et de 300 000 euros d'amende. Seront punis des mêmes peines le débit, l'exportation, l'importation, le transbordement ou la détention aux fins précitées des ouvrages contrefaisants. Lorsque les délits prévus par le présent article ont été commis en bande organisée, les peines sont portées à cinq ans d'emprisonnement et à 500 000 euros d'amende.");
 
     })
 
     //Pour le clic droit -> copier car parfois ne fonctionne pas avec l'évènement copy
-    //contextmenu s'execute à chaque clic droit: ça fait un rappel à la personne si elle s'apprêtait à faire copier.
-    document.addEventListener("contextmenu", function(){
-        console.warn("Rappel: Le plagiat est interdit. Pensez à citer les sources et à respecter les droits d'auteurs.");
-        console.log(" ");
-        console.warn("Article sur le plagiat: Article L335-2 - Code de la propriété intellectuelle");
-        console.warn(" Toute édition d'écrits, de composition musicale, de dessin, de peinture ou de toute autre production, imprimée ou gravée en entier ou en partie, au mépris des lois et règlements relatifs à la propriété des auteurs, est une contrefaçon et toute contrefaçon est un délit. La contrefaçon en France d'ouvrages publiés en France ou à l'étranger est punie de trois ans d'emprisonnement et de 300 000 euros d'amende. Seront punis des mêmes peines le débit, l'exportation, l'importation, le transbordement ou la détention aux fins précitées des ouvrages contrefaisants. Lorsque les délits prévus par le présent article ont été commis en bande organisée, les peines sont portées à cinq ans d'emprisonnement et à 500 000 euros d'amende.")
-
+    //contextmenu s'execute à chaque clic droit sur une image ayant la classe prevention-copie ça fait un rappel à la personne si elle s'apprêtait à faire copier.
+    document.addEventListener("mousedown", (copier) =>{
+        //avec l'event mousedown: button 2 = clic droit
+        if (copier.button === 2 && copier.target.matches(".prevention-copie")){
+            console.warn("Etes-vous entrain d'essayer de copier ou enregistrer l'image ?")
+            console.warn("Si c'est le cas voici un rappel:")
+            console.warn("Le plagiat est interdit par la loi et passible d'une amende. Pensez à citer les sources et à respecter les droits d'auteurs.");
+            }
     })
     //----------------------------------------------
     
