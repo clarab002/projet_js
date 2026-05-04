@@ -160,7 +160,7 @@ body{
 }
 
 .contenu-page{
-    padding-top: 125px;
+    padding-top: 0;
     padding-left: 20px;
 }
 
@@ -338,14 +338,14 @@ body{
 }
 
 .gauche{
-    width: 40% !important;
+    width: 42% !important;
     vertical-align: top;
     padding-left: 30px;
     height: auto;
 }
 
 .droite{
-    width: 60% !important;
+    width: 58% !important;
     vertical-align: middle;
     text-align: center;
     padding: 20px;  

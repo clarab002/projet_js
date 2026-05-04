@@ -1,5 +1,13 @@
 // header
 // menu + horloge + clic logo + navigation + loader + presentation equipe (demande)
+function ajustementcontenu(){
+    if (document.querySelector(".menu-nav") && document.querySelector(".contenu-page")){
+        document.querySelector(".contenu-page").style.paddingTop = document.querySelector(".menu-nav").offsetHeight + "px";
+    }
+}
+
+ajustementcontenu();
+window.addEventListener("resize",ajustementcontenu);
 
 // LOADER -------------------------------------------------------------------------------------------------------
 let angle = 0;
