@@ -3,6 +3,15 @@ document.getElementById("prix-max").addEventListener("input", function(){
     document.getElementById("valeur-prix").textContent = document.getElementById("prix-max").value;
 })
 
+function majbarreprix(){
+    let slider = document.getElementById("prix-max");
+    let pourcentage = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.background = `linear-gradient(to right, #629E85 ${pourcentage}%, #f0f0f0 ${pourcentage}%)`;
+}
+
+majbarreprix();
+document.getElementById("prix-max").addEventListener("input",majbarreprix);
+
 // gestion du tous et des autres quand ils sont checked
 function groupe_filtres(classe_tous,classe_item){
     let checktous = document.querySelector("." + classe_tous);
