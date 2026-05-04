@@ -52,13 +52,15 @@
 }
 
 .carte{
+    justify-content: center;
     border: 1px solid #629e85;
     border-radius: 12px;
     padding: 10px;
     width: 250px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);;
-    background-color: #c9ecdafc;
+    background-color: #aad4be;
+;
 }
 
 .edit{
@@ -102,7 +104,7 @@
 }
 
 .persos {
-    margin-left: 20%;
+    justify-content: center;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
