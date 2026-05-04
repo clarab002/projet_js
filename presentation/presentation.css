@@ -15,6 +15,7 @@
 .edition {
     position: absolute;
     background-color: #fffffff9;
+    color : #629e85;
     border: 2px solid #aad4be;
     padding: 8px 18px;
     right: 40px;
