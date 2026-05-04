@@ -235,9 +235,8 @@ html{
     border: none;
     cursor: pointer;
     text-decoration: none;
-    position: absolute;
-    top : 55px;
-    right: 370px;
+    display: block;
+    margin-left: auto;
 }
 
 #contenu-resume{
