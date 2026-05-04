@@ -40,15 +40,71 @@ function grattage(canvas, context){
 //-----------------------------------------------------------------------------------------
 // MODE EDITION
 let mode_edition = false; //savoir si le mode edition est activé ou non
+let acces = false;
 
 const edit = document.querySelector(".edition"); //s'occupe du bouton edit
 const ajouter = document.querySelector(".addMember"); //s'occupe du bouton ajouter un membre
 const phrase = document.querySelector(".edit");
+const modaleUtilisateur = document.getElementById("modal-utilisateur");
+const modalePwd = document.getElementById("modal-password");
+const modaleSortie = document.getElementById("modal-sortir");
 
 //Cacher le bouton ajouter un membre
 ajouter.style.display = "none";
 
-//Demande d'accès
+
+function afficher_utilisateur(){
+    modaleUtilisateur.style.display = "flex";
+}
+
+function afficher_pwd(){
+    modalePwd.style.display = 'flex';
+}
+
+document.getElementById("btn-verifier").addEventListener("click",function(){
+    let nom_util = document.getElementById('utilisateur').value;
+    if (nom_util === "admin"){
+        document.getElementById("utilisateur").value = "";
+        modaleUtilisateur.style.display = 'none';
+        afficher_pwd();
+    } else{
+        document.getElementById("texteUtil").innerText = "Vous n'avez pas entré le bon nom d'utilisateur";
+    }
+});
+
+document.getElementById('btn-verif').addEventListener("click", function(){
+    let mdp = document.getElementById("password").value;
+    if (mdp == "admin_pwd"){
+        document.getElementById("password").value = "";
+        modalePwd.style.display = 'none';
+        activerModeEdition();
+    } else{
+        document.getElementById('textePwd').innerText = "Vous n'avez pas entré le bon mot de passe";
+    }
+});
+
+document.getElementById("btn-annul").addEventListener("click", function(){
+    modaleUtilisateur.style.display = "none";
+});
+
+document.getElementById("btn-annulation").addEventListener("click", function(){
+    modalePwd.style.display = 'none';
+});
+
+function sortir(){
+    modaleSortie.style.display = 'flex';
+}
+
+document.getElementById("btn-sortie").addEventListener("click", function(){
+    modaleSortie.style.display = 'none';
+    desactiverModeEdition();
+})
+
+document.getElementById("btn-nevermind").addEventListener("click", function(){
+    modaleSortie.style.display = 'none';
+})
+
+/*//Demande d'accès
 function demanderAcces(){
     const utilisateur = prompt("Nom d'utilisateur : ") //nom pour y accéder: admin
     if (utilisateur !== "admin"){
@@ -64,7 +120,7 @@ function demanderAcces(){
 
     alert("Vous êtes maintenant sur le mode édition. Vous pouvez maintenant faire des modifications");
     return true; //accès autorisé
-}
+}*/
 
 //Modification des textes comportants la classe texte
 function modifierTexte(){
@@ -166,14 +222,12 @@ function ajouterMembre(){
 //clic sur le mode edition
 edit.addEventListener("click", function(){
     if(mode_edition){
-        if (confirm("Voulez-vous quitter le mode édition ?")){
-            desactiverModeEdition();
-        }
-        return;
+       sortir();
     }
-    if(demanderAcces()){
-        activerModeEdition();
+    else {
+        afficher_utilisateur();
     }
+    
 });
 
 //clic sur ajouter un membre
