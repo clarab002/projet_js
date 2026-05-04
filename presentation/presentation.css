@@ -93,9 +93,8 @@
     flex-wrap: wrap;
 }
 
-
 .cercle{
-    background-image: url("imgPresentation/profil.avif");
+    background-image: url("img/profil.avif");
     background-size: 153px;
     background-position: center;
     background-position-y: 12%;

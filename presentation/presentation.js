@@ -141,6 +141,7 @@ function ajouterMembre(){
 
     //ajout de l'id pour travailler sur l'intérieur de la carte
     const id = "perso" + (document.querySelectorAll(".carte").length + 1);
+
     //
     nouvelleCarte.innerHTML = `
     <div class="cercle">
@@ -148,10 +149,6 @@ function ajouterMembre(){
     </div>
     <p class="texte">Nouveau Membre</p>
     `;
-
- 
-    
-    
 
     //on ajoute tout ça pour le DOM
     document.querySelector(".persos").appendChild(nouvelleCarte);
