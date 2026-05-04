@@ -234,7 +234,7 @@ function main(){
     for (element of document.getElementsByClassName("a_propos")){
         element.addEventListener("click", delay);
     }
-    for (element of document.querySelectorAll(".accueil")){
+    for (element of document.getElementsByClassName("accueil")){
         element.addEventListener("click", delay);
     }
     for (element of document.getElementsByClassName("contact")){
