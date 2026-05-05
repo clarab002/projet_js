@@ -238,6 +238,10 @@ html{
     margin-left: auto;
 }
 
+#txt{
+    margin-top: 0;
+}
+
 #contenu-resume{
     white-space: pre-line;
     text-align: left;
@@ -295,6 +299,14 @@ html{
 .scroll-spacer{
     flex : 0 0 20px;
     min-width: 20px;
+}
+
+#msg-aucun-resultat{
+    display: none;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    color: #629E85;
 }
 
 #fleche-haut{

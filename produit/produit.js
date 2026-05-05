@@ -28,6 +28,15 @@ function groupe_filtres(classe_tous,classe_item){
             if (this.checked){
                 checktous.checked = false;
             }
+            let aumoinsunecoche = Array.from(checkitems).some(item => item.checked);
+            if (!aumoinsunecoche){
+                checktous.checked = true; 
+            }
+            let touscoche = Array.from(checkitems).every(item => item.checked);
+            if (touscoche){
+                checktous.checked = true;
+                checkitems.forEach(item => {item.checked = false;});
+            }
         });
     });
 }
@@ -86,6 +95,7 @@ document.querySelectorAll(".filtre-date input").forEach( input => {
 //visibilité section
 function titresectionvisible(){
     let sections = ["romance", "fantastique", "science-fiction", "policier", "manga"];
+    let aumoinsunevisible = false;
 
     sections.forEach(theme => {
         let section = document.querySelector("." + theme);
@@ -93,7 +103,9 @@ function titresectionvisible(){
         let cartes = section.querySelectorAll(".carte");
         let aumoinsune = Array.from(cartes).some(carte => carte.style.display !== "none");
         section.style.display = aumoinsune ? "block" : "none";
-    })
+        if (aumoinsune) aumoinsunevisible = true;
+    });
+    document.getElementById("msg-aucun-resultat").style.display = aumoinsunevisible ? "none" : "block";
 }
 
 
@@ -175,4 +187,3 @@ document.querySelectorAll(".modale").forEach(function(element) {
 document.querySelector(".fermeture").onclick = function() {
     document.getElementById("modal-livre").style.display = "none";
 };
-
