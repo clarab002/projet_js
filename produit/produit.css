@@ -77,6 +77,23 @@ html{
     cursor: pointer;
 }
 
+#btn-reinitialisation{
+    margin-top: 20px;
+    width: 88%;
+    padding: 6px 10px;
+    background-color: transparent;
+    color: #629E85;
+    border: 1.5px solid #AAD4BE;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#btn-reinitialisation:hover{
+    background-color: #AAD4BE;
+    color: white;
+}
+
 .liste-livres{
     flex : 1;
     padding-left: 20px;

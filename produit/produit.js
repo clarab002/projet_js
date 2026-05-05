@@ -108,6 +108,25 @@ function titresectionvisible(){
     document.getElementById("msg-aucun-resultat").style.display = aumoinsunevisible ? "none" : "block";
 }
 
+function reinitialisation(){
+    document.getElementById("recherche-titre").value = "";
+
+    document.querySelector(".tous-theme").checked = true;
+    document.querySelectorAll(".item-theme").forEach(item => item.checked = false);
+
+    document.getElementById("prix-max").value = 25;
+    majbarreprix();
+    document.getElementById("valeur-prix").textContent = 25;
+
+    document.getElementById("selection-auteur").value = "Tous";
+
+    document.querySelector(".tous-date").checked = true;
+    document.querySelectorAll(".item-date").forEach(item => item.checked = false);
+
+    filtres();
+}
+
+document.getElementById("btn-reinitialisation").addEventListener("click",reinitialisation);
 
 //image qui change au clic
 document.querySelectorAll(".images").forEach(image => {
