@@ -78,12 +78,6 @@ body{
     width: 100%;
 }
 
-#heure {
-    padding-top: 15px;
-    margin: 0;
-    white-space: nowrap;
-}
-
 .chrono{
     display: flex;
     justify-content: flex-end;
