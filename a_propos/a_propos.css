@@ -3,6 +3,13 @@
     color : white;
 }
 
+.menu-nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /*pour etre sur que rien ne passe sur la barre de navigation*/
+}
+
 h1, h2, h4 {
     padding: 13px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -23,6 +30,16 @@ h1, h4 {
 
 .contenu-page{
     padding-left: 0;
+}
+
+.mission-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+.img-mission {
+    border-radius: 50%;
 }
 
 /*------------- CONFIGURATION MODAL -------------*/
@@ -94,9 +111,47 @@ h1, h4 {
     font-weight: 500; /*pour l'affiner*/
 }
 
+
 .modal p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/*image dans la fenetre modale*/
+.image{
+    border-radius: 20%;
+}
+
 /*------------- FRISE CHRONOLOGIQUE -------------*/
+
+.frise {
+    margin: 40px auto;
+    width: 80%;
+    border-left: 3px solid #aad4be;
+    padding-left: 30px;
+}
+
+.etape {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.etape .point {
+    width: 15px;
+    height: 15px;
+    background: #aad4be;
+    border-radius: 50%; /*pour faire un cercle*/
+    position: absolute;
+    left: -38.5px;
+    top: 5px;
+}
+
+.etape h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #629E85;
+}
+
+.etape p {
+    margin: 5px 0 0;
+}
