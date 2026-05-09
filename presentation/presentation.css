@@ -78,6 +78,28 @@
     font-style: italic;
 }
 
+/*---------BOUTON MODALE----------*/
+
+.valider, .annuler {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    background-color: #aad4be;
+    color: white;
+}
+
+.valider {
+    background-color: #aad4be;
+    color: white;
+}
+.valider:hover, .annuler:hover{
+    background-color: #629e85;
+}
+
 /*--------------------------------*/
 
 .edit{
