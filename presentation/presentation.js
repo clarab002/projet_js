@@ -2,8 +2,8 @@
 
 function get2DContext(id){ //récupère le context d'un canva
     let canvas = document.getElementById(id) //Utilise l'id référencé dans le html
-    let context = canvas.getContext("2d"); 
-    return context; 
+    let context = canvas.getContext("2d");
+    return context;
 }
 
 
@@ -40,7 +40,7 @@ function grattage(canvas, context){
 //-----------------------------------------------------------------------------------------
 // MODE EDITION
 let mode_edition = false; //savoir si le mode edition est activé ou non
-let acces = false;
+let supp = false;
 
 const edit = document.querySelector(".edition"); //s'occupe du bouton edit
 const ajouter = document.querySelector(".addMember"); //s'occupe du bouton ajouter un membre
@@ -48,6 +48,7 @@ const phrase = document.querySelector(".edit");
 const modaleUtilisateur = document.getElementById("modal-utilisateur");
 const modalePwd = document.getElementById("modal-password");
 const modaleSortie = document.getElementById("modal-sortir");
+const modaleSupp = document.getElementById("modal-supp");
 
 //Cacher le bouton ajouter un membre
 ajouter.style.display = "none";
@@ -60,49 +61,6 @@ function afficher_utilisateur(){
 function afficher_pwd(){
     modalePwd.style.display = 'flex';
 }
-
-document.getElementById("btn-verifier").addEventListener("click",function(){
-    let nom_util = document.getElementById('utilisateur').value;
-    if (nom_util === "admin"){
-        document.getElementById("utilisateur").value = "";
-        modaleUtilisateur.style.display = 'none';
-        afficher_pwd();
-    } else{
-        document.getElementById("texteUtil").innerText = "Vous n'avez pas entré le bon nom d'utilisateur";
-    }
-});
-
-document.getElementById('btn-verif').addEventListener("click", function(){
-    let mdp = document.getElementById("password").value;
-    if (mdp == "admin_pwd"){
-        document.getElementById("password").value = "";
-        modalePwd.style.display = 'none';
-        activerModeEdition();
-    } else{
-        document.getElementById('textePwd').innerText = "Vous n'avez pas entré le bon mot de passe";
-    }
-});
-
-document.getElementById("btn-annul").addEventListener("click", function(){
-    modaleUtilisateur.style.display = "none";
-});
-
-document.getElementById("btn-annulation").addEventListener("click", function(){
-    modalePwd.style.display = 'none';
-});
-
-function sortir(){
-    modaleSortie.style.display = 'flex';
-}
-
-document.getElementById("btn-sortie").addEventListener("click", function(){
-    modaleSortie.style.display = 'none';
-    desactiverModeEdition();
-})
-
-document.getElementById("btn-nevermind").addEventListener("click", function(){
-    modaleSortie.style.display = 'none';
-})
 
 /*//Demande d'accès
 function demanderAcces(){
@@ -122,6 +80,69 @@ function demanderAcces(){
     return true; //accès autorisé
 }*/
 
+
+//demande nom utilisateur
+document.getElementById("btn-verifier").addEventListener("click",function(){
+    let nom_util = document.getElementById('utilisateur').value;
+    if (nom_util === "admin"){
+        document.getElementById("utilisateur").value = "";
+        modaleUtilisateur.style.display = 'none';
+        afficher_pwd();
+    } else{
+        document.getElementById("texteUtil").innerText = "Vous n'avez pas entré le bon nom d'utilisateur";
+    }
+});
+
+//demande mot de passe
+document.getElementById('btn-verif').addEventListener("click", function(){
+    let mdp = document.getElementById("password").value;
+    if (mdp == "admin_pwd"){
+        document.getElementById("password").value = "";
+        modalePwd.style.display = 'none';
+        activerModeEdition();
+    } else{
+        document.getElementById('textePwd').innerText = "Vous n'avez pas entré le bon mot de passe";
+    }
+});
+
+//bouton annuler pour les différentes fenêtres modales
+document.getElementById("btn-annul").addEventListener("click", function(){
+    modaleUtilisateur.style.display = "none";
+});
+
+document.getElementById("btn-annulation").addEventListener("click", function(){
+    modalePwd.style.display = 'none';
+});
+
+//fenetre modale pour quitter le mode édition
+function sortir(){
+    modaleSortie.style.display = 'flex';
+}
+
+document.getElementById("btn-sortie").addEventListener("click", function(){
+    modaleSortie.style.display = 'none';
+    desactiverModeEdition();
+});
+
+document.getElementById("btn-nevermind").addEventListener("click", function(){
+    modaleSortie.style.display = 'none';
+});
+
+
+//pour la fenêtre modale qui supprime une carte
+document.getElementById("btn-supp").addEventListener('click', function(){
+    if (carteASupp){
+        carteASupp.remove();
+        carteASupp = null;
+    }
+    modaleSupp.style.display = 'none';
+    
+})
+
+document.getElementById('btn-no').addEventListener('click', function(){
+    modaleSupp.style.display = "none";
+})
+
 //Modification des textes comportants la classe texte
 function modifierTexte(){
     document.querySelectorAll(".texte").forEach(texte => {
@@ -132,14 +153,13 @@ function modifierTexte(){
 
 //créer un bouton supprimer pour chaque carte
 function boutonSupp(carte) {
-    const bouton = document.createElement("button"); 
+    const bouton = document.createElement("button");
     bouton.classList.add("supprimer");
 
     //Utilisation du bouton pour supprimer toute la carte apportée en paramètre dès qu'on clique dessus
     bouton.addEventListener("click", function() {
-        if (confirm("Voulez-vous supprimer ce membre ?")){
-            carte.remove();
-        }
+        carteASupp = carte; //on mémorise la carte
+        modaleSupp.style.display = 'flex';
     });
 
     //comme on a créer un bouton il faut l'ajouter dans le DOM
@@ -171,7 +191,7 @@ function desactiverModeEdition(){
     edit.classList.remove("active");
     phrase.classList.remove("active");
     edit.textContent = "Edit";
-    
+   
     //Cacher le bouton ajouter un membre
     ajouter.style.display = "none";
 
@@ -227,7 +247,7 @@ edit.addEventListener("click", function(){
     else {
         afficher_utilisateur();
     }
-    
+   
 });
 
 //clic sur ajouter un membre
@@ -254,7 +274,7 @@ function main(){
 
     //-----------------------------------------------------------------
 
-    
+   
 }
 
 main();
