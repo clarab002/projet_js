@@ -41,6 +41,8 @@ function grattage(canvas, context){
 // MODE EDITION
 let mode_edition = false; //savoir si le mode edition est activé ou non
 let supp = false;
+let carteASupp = null;
+let auteurASupp = null;
 
 const edit = document.querySelector(".edition"); //s'occupe du bouton edit
 const ajouter = document.querySelector(".addMember"); //s'occupe du bouton ajouter un membre
@@ -49,6 +51,10 @@ const modaleUtilisateur = document.getElementById("modal-utilisateur");
 const modalePwd = document.getElementById("modal-password");
 const modaleSortie = document.getElementById("modal-sortir");
 const modaleSupp = document.getElementById("modal-supp");
+
+//Pour mes auteurs
+const ajouter_auteur = document.querySelector(".addAuteur");
+const supp_auteur = document.querySelectorAll(".supprimerAuteur");
 
 //Cacher le bouton ajouter un membre
 ajouter.style.display = "none";
@@ -135,6 +141,12 @@ document.getElementById("btn-supp").addEventListener('click', function(){
         carteASupp.remove();
         carteASupp = null;
     }
+
+    if (auteurASupp){
+        auteurASupp.remove();
+        auteurASupp = null;
+    }
+
     modaleSupp.style.display = 'none';
     
 })
@@ -172,6 +184,7 @@ function activerModeEdition(){
     //pour changer l'apparence du bouton en lui ajoutant la classe active pour le css
     edit.classList.add("active");
     phrase.classList.add("active");
+
     edit.textContent = "Exit";
     //pour afficher le bouton ajouter un membre
     ajouter.style.display = "inline-block";
@@ -180,6 +193,17 @@ function activerModeEdition(){
     //ajouter un bouton pour supprimer une carte
     document.querySelectorAll(".carte").forEach(carte =>{
         boutonSupp(carte);
+    });
+
+    //PARTIE AUTEUR
+    ajouter_auteur.classList.add("active");
+    supp_auteur.forEach(btn => {
+        btn.classList.add("active");
+
+        btn.addEventListener("click", function(){
+            auteurASupp = btn.parentElement; //le <div id="auteurX">
+            modaleSupp.style.display = "flex";
+        })
     });
 }
 
@@ -190,6 +214,7 @@ function desactiverModeEdition(){
     //Rechanger le style du bouton edition puisqu'on n'est plus dans le mode edition
     edit.classList.remove("active");
     phrase.classList.remove("active");
+
     edit.textContent = "Edit";
    
     //Cacher le bouton ajouter un membre
@@ -205,6 +230,13 @@ function desactiverModeEdition(){
     document.querySelectorAll(".supprimer").forEach(boutons => {
         //retirer les boutons dont la classe est supprimer
         boutons.remove();
+    });
+
+    //PARTIE AUTEUR
+    ajouter_auteur.classList.remove("active");
+    
+    supp_auteur.forEach(btn => {
+        btn.classList.remove("active");
     });
 }
 
@@ -223,6 +255,8 @@ function ajouterMembre(){
         <canvas class="canva prevention-copie" id="${id}" width="250" height="350"></canvas>
     </div>
     <p class="texte">Nouveau Membre</p>
+    <p class="texte role">Rôle dans l'équipe</p>
+    <p class="texte description">Description</p>
     `;
 
     //on ajoute tout ça pour le DOM
@@ -238,6 +272,45 @@ function ajouterMembre(){
     canvasApp(context);
     grattage(document.getElementById(id), context);
 }
+
+//Ajouter auteur
+function ajouterAuteur(){
+    const auteursContainer = document.querySelector(".auteurs");
+
+    const nouvelAuteur = document.createElement("div");
+    nouvelAuteur.classList.add("auteur");
+
+    nouvelAuteur.innerHTML = `
+        <h3 class="texte nom-auteur">Nouvel auteur</h3>
+        <p class="texte biographie">Biographie de l'auteur</p>
+        <h4 class="texte oeuvre">Quelques unes de ses oeuvres:</h4>
+        <ul class="texte liste-oeuvres">
+            <li>Oeuvre 1</li>
+            <li>Oeuvre 2</li>
+            <li>Oeuvre 3</li>
+        </ul>
+        <button class="supprimerAuteur active"></button>
+    `;
+
+    auteursContainer.appendChild(nouvelAuteur);
+
+    //rendre le texte modifiable
+    modifierTexte();
+
+    //gérer le bouton supprimer de ce nouvel auteur
+    const btn = nouvelAuteur.querySelector(".supprimerAuteur");
+    btn.addEventListener("click", function(){
+        auteurASupp = nouvelAuteur;
+        modaleSupp.style.display = "flex";
+    });
+}
+
+//clic pour ajouter auteur
+ajouter_auteur.addEventListener("click", function(){
+    if(mode_edition){
+        ajouterAuteur();
+    }
+});
 
 //clic sur le mode edition
 edit.addEventListener("click", function(){
