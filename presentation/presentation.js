@@ -285,7 +285,7 @@ function ajouterAuteur(){
     nouvelAuteur.innerHTML = `
         <h3 class="texte nom-auteur">Nouvel auteur</h3>
         <p class="texte biographie">Biographie de l'auteur</p>
-        <h4 class="texte oeuvre">Quelques unes de ses oeuvres:</h4>
+        <h4 class="texte oeuvre">Quelques unes de ses oeuvres :</h4>
         <ul class="texte liste-oeuvres">
             <li>Oeuvre 1</li>
             <li>Oeuvre 2</li>
