@@ -18,6 +18,13 @@
     color : white;
 }
 
+.menu-nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /*pour etre sur que rien ne passe sur la barre de navigation*/
+}
+
 .contenu-page{
     padding-left: 0;
 }
