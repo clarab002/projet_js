@@ -129,6 +129,7 @@
 #div-presentation{
     display: flex;
     flex-direction: row;
+    gap: 10px;
 }
 
 #txt-presentation{
