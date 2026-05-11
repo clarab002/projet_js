@@ -114,10 +114,12 @@ document.getElementById('btn-verif').addEventListener("click", function(){
 //bouton annuler pour les différentes fenêtres modales
 document.getElementById("btn-annul").addEventListener("click", function(){
     modaleUtilisateur.style.display = "none";
+    document.getElementById("utilisateur").value = "";
 });
 
 document.getElementById("btn-annulation").addEventListener("click", function(){
     modalePwd.style.display = 'none';
+    document.getElementById("password").value = "";
 });
 
 //fenetre modale pour quitter le mode édition
