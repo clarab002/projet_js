@@ -78,10 +78,10 @@
     font-style: italic;
 }
 
-/*---------BOUTON MODALE----------*/
+/*---------BOUTON MODALE ET CHAMP MODAL----------*/
 
 .valider, .annuler {
-    padding: 10px 18px;
+    padding: 10px 15px;
     border-radius: 8px;
     border: none;
     font-weight: bold;
@@ -93,11 +93,20 @@
 }
 
 .valider {
+    margin-right: 10px;
     background-color: #aad4be;
     color: white;
 }
 .valider:hover, .annuler:hover{
     background-color: #629e85;
+}
+
+.champ {
+    margin-top: 2px;
+    border: 1px solid #646464;
+    background-color: white;
+    padding: 8px 30px;
+    border-radius: 8px;
 }
 
 /*--------------------------------*/
@@ -158,7 +167,7 @@
 }
 
 #perso1 {
-    background-image: url("../img/logo1.png");
+    background-image: url("img/amira.jpeg");
     background-size: 140px;
     background-position: center;
     background-position-y: 10%;
@@ -166,7 +175,7 @@
 }
 
 #perso2 {
-    background-image: url("../img/logo1.png");
+    background-image: url("img/clarad.jpeg");
     background-size: 140px;
     background-position: center;
     background-position-y: 10%;
@@ -174,7 +183,7 @@
 }
 
 #perso3 {
-    background-image: url("../img/logo1.png");
+    background-image: url("img/clara2.jpeg");
     background-size: 140px;
     background-position: center;
     background-position-y: 10%;

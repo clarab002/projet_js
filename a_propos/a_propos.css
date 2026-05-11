@@ -10,6 +10,14 @@
     z-index: 9999; /*pour etre sur que rien ne passe sur la barre de navigation*/
 }
 
+#adresse {
+    color: #629E85;
+    text-decoration: none;
+}
+#adresse:hover{
+    text-decoration: underline;
+}
+
 h1, h2, h4 {
     padding: 13px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
