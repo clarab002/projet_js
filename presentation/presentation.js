@@ -209,6 +209,29 @@ function activerModeEdition(){
     });
 }
 
+//ouvrir fenêtre modal carte
+function ajouterClicCarte(carte){
+    carte.addEventListener("click",function(e){
+        if(mode_edition) return; //pour pas ouvrir la fenêtre modal quand on est en mode édition
+        if (e.target.classList.contains("supprimer")) return;  //pour pas ouvrir la modal si on clique sur la poubelle
+
+        document.getElementById("modal-carte-nom").textContent = carte.querySelectorAll(".texte")[0].textContent;
+        document.getElementById("modal-carte-role").textContent = carte.querySelectorAll(".texte")[1].textContent;
+        document.getElementById("modal-carte-description").textContent = carte.querySelectorAll(".texte")[2].textContent;
+        document.getElementById("modal-carte").style.display = "flex";
+    });
+}
+
+//fermeture modal
+document.getElementById("btn-fermer-carte").addEventListener("click",function(){
+    document.getElementById("modal-carte").style.display = "none";
+});
+
+//on ajoute la modal à chaque carte
+document.querySelectorAll(".carte").forEach(carte => {
+    ajouterClicCarte(carte);
+});
+
 //Désactiver le mode édition
 function desactiverModeEdition(){
     mode_edition = false;
@@ -273,6 +296,8 @@ function ajouterMembre(){
     let context = get2DContext(id); //le canva du dessin
     canvasApp(context);
     grattage(document.getElementById(id), context);
+
+    ajouterClicCarte(nouvelleCarte);
 }
 
 //Ajouter auteur
