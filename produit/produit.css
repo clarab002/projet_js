@@ -27,6 +27,8 @@ html{
     font-size: 17px;
 }
 
+/* partie filtre à gauche*/
+
 .contenu-page label{
     font-size: 15px;
 }
@@ -45,6 +47,21 @@ html{
 
 .filtre h3{
     margin-bottom: 5px;
+}
+
+#recherche-titre{
+    width: 75%;
+    padding: 6px 10px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    margin-top : 5px;
+    margin-bottom: 10px;
+}
+
+#recherche-titre:focus{
+    border-color: #629E85;
 }
 
 .filtre-theme, .filtre-date{
@@ -77,6 +94,21 @@ html{
     cursor: pointer;
 }
 
+#selection-auteur{
+    width: 85%;
+    padding: 6px 10px;
+    border : 1.5px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#selection-auteur:focus{
+    border-color: #629E85;
+}
+
 #btn-reinitialisation{
     margin-top: 20px;
     width: 88%;
@@ -93,6 +125,8 @@ html{
     background-color: #AAD4BE;
     color: white;
 }
+
+/*partie des produits sur la droite*/
 
 .liste-livres{
     flex : 1;
@@ -202,41 +236,11 @@ html{
     line-height: 1.2;
 }
 
-#recherche-titre{
-    width: 75%;
-    padding: 6px 10px;
-    border: 1.5px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 13px;
-    margin-top : 5px;
-    margin-bottom: 10px;
-}
-
-#recherche-titre:focus{
-    border-color: #629E85;
-}
-
 .txt-auteur{
     color: black;
     font-style: italic;
     font-size: 12.5px;
     margin-bottom: 10px !important;
-}
-
-#selection-auteur{
-    width: 85%;
-    padding: 6px 10px;
-    border : 1.5px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 13px;
-    background-color: white;
-    cursor: pointer;
-}
-
-#selection-auteur:focus{
-    border-color: #629E85;
 }
 
 .txt-resume{
@@ -325,6 +329,8 @@ html{
     margin-top: 40px;
     color: #629E85;
 }
+
+/*fleche pour remonter en haut de la page*/
 
 #fleche-haut{
     width: fit-content;

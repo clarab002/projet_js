@@ -139,30 +139,32 @@ function chrono(){
 }
 // --------------------------------------------------------------------------------------------------------------
 
-//fenêtre modale
+//FENÊTRE MODALE
 function ouvrirModale(e) {
     e.preventDefault();
     const modal = document.getElementById("modal-tete");
-    modal.style.display = "flex";
+    modal.style.display = "flex"; //on affiche la modale
 }
 
+//à chaque fois qu'on clique sur le bouton équipe on ouvre la modale
 let p_equipe = document.querySelectorAll(".f-modale");
 for (let i = 0; i < p_equipe.length; i++){
     p_equipe[i].addEventListener("click",ouvrirModale);
 }
 
-// Bouton NON
+//bouton non pour fermer la modale
 document.getElementById("btn-non").onclick = function() {
     document.getElementById("modal-tete").style.display = "none";
 };
 
 // --------------------------------------------------------------------------------------------------------------
 
-// footer
+//FOOTER
 let nums ="";
 
 function numero(){
-    let texte = window.getSelection().toString().trim();
+    let texte = window.getSelection().toString().trim(); //on récupère le texte copié par l'utilisateur
+    //on vérifie que c'est un numéro si oui on affiche la modale
     if (texte.startsWith("+33")){
         nums = texte;
         const modal = document.getElementById("modal-numero");
@@ -171,11 +173,13 @@ function numero(){
     }
 }
 
-// Bouton Valider
+//bouton valider fenêtre modale
 document.getElementById("btn-valider").onclick = function() {;
     let texte_sans_espace = nums.replace(/\s+/g,"");
     let validation = document.getElementById("validation").value;
     let validation_sans_espace = validation.replace(/\s+/g,"");
+
+    //si le numéro correspond à celui copié on lance une sonnerie pendant 5 secondes
     if (validation == nums || validation_sans_espace==texte_sans_espace){
         console.log(`Vous appelez ce numéro : ${validation}`);
         let audio = new Audio("../sonnerie.wav");
@@ -185,6 +189,7 @@ document.getElementById("btn-valider").onclick = function() {;
             audio.currentTime = 0;
         },5000);
     }
+    //messages d'erreurs si le numéro ne correspond pas à celui copié
     else if (validation == ""){
         console.log("Erreur de saisie : le champ est vide. Veuillez entrer le numéro affiché.");
     } else if(validation_sans_espace.length<12){
@@ -201,21 +206,16 @@ document.getElementById("btn-valider").onclick = function() {;
     }
 };
 
-// Bouton Annuler
+//bouton annuler fenêtre modale
 document.getElementById("btn-annuler").onclick = function() {
-    document.getElementById("modal-numero").style.display = "none";
+    document.getElementById("modal-numero").style.display = "none"; //on cache la modale
 };
 
+//on regarde pour chaque numéro s'il est copié
 let numeros = document.getElementsByClassName("numero");
 for (let j = 0; j < numeros.length; j++){
     numeros[j].addEventListener("copy",numero);
 }
-
-// numero tel, validation,  sonnerie + adresses 
-
-// copie element
-
-// erreurs
 
 function main(){
     // REGLES SUR LE PLAGIAT  
@@ -250,7 +250,7 @@ function main(){
         element.addEventListener("click", delay);
     }
 
-   document.getElementById("btn-oui").addEventListener("click",delay); // le delay ne marche pas 
+    document.getElementById("btn-oui").addEventListener("click",delay); // le delay ne marche pas 
 
     for (element of document.getElementsByClassName("produit")){
         element.addEventListener("click", delay);
