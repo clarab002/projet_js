@@ -10,34 +10,34 @@ function affichageSlogan(){
     
     let i = 0; 
 
-        let apparition = setInterval(function(){
-            endroitSlogan.innerText += " " + slogan[i];
-            i++; 
-        },500)
+    let apparition = setInterval(function(){
+        endroitSlogan.innerText += " " + slogan[i];
+        i++; 
+    },500)
 
-        setTimeout(function(){
-            clearInterval(apparition);
-        },3000)
+    setTimeout(function(){
+        clearInterval(apparition);
+    },3000)
 
-        setTimeout(function(){
-            //endroitSlogan.classList.add("right");
-            document.getElementById("div-slogan").classList.add("right");
-            //endroitSlogan.style.textAlign = "right";
-            //gsap.to("#slogan", { duration: 0.5, textAlign: "right" });
-        },4000)
+    setTimeout(function(){
+        //endroitSlogan.classList.add("right");
+        document.getElementById("div-slogan").classList.add("right");
+        //endroitSlogan.style.textAlign = "right";
+        //gsap.to("#slogan", { duration: 0.5, textAlign: "right" });
+    },4000)
 
-        setTimeout(function(){
-            document.getElementById("div-slogan").classList.remove("right")
-            document.getElementById("div-slogan").classList.add("left");
-        }, 6000)
+    setTimeout(function(){
+        document.getElementById("div-slogan").classList.remove("right")
+        document.getElementById("div-slogan").classList.add("left");
+    }, 6000)
 
-        setTimeout(function(){
-            document.getElementById("div-slogan").classList.remove("left");
-        }, 8000)
+    setTimeout(function(){
+        document.getElementById("div-slogan").classList.remove("left");
+    }, 8000)
 
-        setTimeout(function(){
-            endroitSlogan.innerText = " ";
-        },10500)
+    setTimeout(function(){
+        endroitSlogan.innerText = " ";
+    },10500)
     
     setInterval(function(){
         let i = 0; 
@@ -67,7 +67,7 @@ function affichageSlogan(){
         setTimeout(function(){
             endroitSlogan.innerText = " ";
         },10500)
-    },11500)
+    },10500)
 }
 
 
