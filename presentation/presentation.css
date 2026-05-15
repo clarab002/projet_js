@@ -280,7 +280,7 @@ button {
     margin-bottom: 6px;
 }
 
-/*AJOUTER UN AUTEUR*/
+/*AJOUTER ET SUPPRIMER UN AUTEUR*/
 .actions-auteurs {
     width: 100%;
     display: flex;
