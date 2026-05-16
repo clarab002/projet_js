@@ -1,9 +1,9 @@
-const boutonEnvoyer = document.querySelectorAll('#btn-envoyer');
-const modaleJeu = document.querySelectorAll('#modal-jeu');
+const boutonEnvoyer = document.querySelector('#btn-envoyer');
+const modaleJeu = document.querySelector('#modal-jeu');
 
-const champNom = document.querySelectorAll('#nom');
-const champEmail = document.querySelectorAll('#email');
-const champMessage = document.querySelectorAll('#message');
+const champNom = document.querySelector('#nom');
+const champEmail = document.querySelector('#email');
+const champMessage = document.querySelector('#message');
 
 // Vérifie si les conditions de validation de chaques champs sont respectées 
 function verifierSaisie() {
@@ -47,8 +47,8 @@ function choix(event) {
     const choixJoueur = event.target.id;
     const options = ['pierre', 'feuille', 'ciseaux'];
     const choixOrdi = options[Math.floor(Math.random() * 3)];
-    const affichage = document.querySelectorAll('#resultat-combat');
-    const message = document.querySelectorAll('#messages');
+    const affichage = document.querySelector('#resultat-combat');
+    const message = document.querySelector('#messages');
     
     let resultat = `L'ordinateur a joué ${choixOrdi} ➜ `;
 
