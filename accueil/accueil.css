@@ -4,11 +4,6 @@
 }
 
 @font-face {
-    font-family: "Story script";
-    src: url(../font/Story_Script/StoryScript-Regular.ttf);
-}
-
-@font-face {
     font-family: "Playwrite Norge";
     src: url(../font/Playwrite_NO/PlaywriteNO-VariableFont_wght.ttf);
 }
@@ -29,6 +24,7 @@
     padding-left: 0;
 }
 
+/*-----BANNIÈRE-----*/
 .banniere{
     opacity: 10.5;
 }
@@ -84,13 +80,11 @@
     cursor: pointer;
     border : solid;
 }
+/*------------------*/
 
 
 /*-----slogan-----*/
 #slogan{
-    /*text-align: center;*/
-    /*margin-right: 10px;
-    margin-left: 10px;*/
     white-space: nowrap;
     padding-right: 10px;
     padding-left: 12px;
@@ -126,10 +120,16 @@
 }
 /*----------------*/
 
+
+/*-----PRESENTATION-----*/
 #div-presentation{
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+#titre-presentation{
+    margin-top: 15px;
 }
 
 #txt-presentation{
@@ -157,9 +157,23 @@
 #txt-presentation button:hover{
     background-color: #aad4be;
     color: white;
-    
 }
 
+#video-presentation{
+    margin-right: 25px;
+    margin-left: auto;
+}
+/*----------------------*/
+
+#titre-presentation, #titre-actualites{
+    background-color: #aad4be;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+}
+
+/*-----ACTUALITÉS-----*/
 #actualites{
     display: flex;
     justify-content: center;
@@ -182,25 +196,8 @@
     transform: scale(1.04);
 }
 
-#titre-presentation, #titre-actualites{
-    background-color: #aad4be;
-    text-align: center;
-    font-size: 24px;
-    color: white;
-    padding: 10px;
-}
-
-#titre-presentation{
-    margin-top: 15px;
-}
-
 #titre-actualites{
     margin-top: 0px;
-}
-
-#video-presentation{
-    margin-right: 25px;
-    margin-left: auto;
 }
 
 .nom-actualite{
@@ -217,13 +214,9 @@
     text-align: right;
 }
 
-.p1{
+/*Si le texte fait 4 lignes*/
+.p1{ 
     margin-top: 66px;
-    margin-right: 5px;
-}
-
-.p2{
-    margin-top: 52px;
     margin-right: 5px;
 }
 
@@ -231,6 +224,13 @@
     margin-top: 35px;
 }
 
-.d2{
+/*Si le texte fait 5 lignes*/
+.p2{ 
+    margin-top: 52px;
+    margin-right: 5px;
+}
+
+.d2{ 
     margin-top: 27px;
 }
+/*--------------------*/

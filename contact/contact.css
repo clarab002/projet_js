@@ -2,7 +2,13 @@
     background-color: #aad4be;
     color : white;
 }
-.form-container {
+
+.contenu-page{
+    padding-bottom: 20px;
+}
+
+/*-----FORMULAIRE-----*/
+.div-formulaire {
     max-width: 600px;
     margin: 20px auto;
     background: white;
@@ -10,17 +16,16 @@
     border-radius: 8px;
 }
 
-.groupe-saisie {
+.saisie {
     margin-bottom: 15px;
 }
 
-/* Le texte d'erreur est rouge et possède une petite marge */
 .message-erreur {
     color: #629e85;
     font-size: 0.85em;
     margin-top: 5px;
     margin-bottom: 10px;
-    display: none; /* Sera géré par le JS */
+    display: none; 
 }
 
 input, textarea {
@@ -28,6 +33,13 @@ input, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+textarea {
+    max-height: 400px;
+    min-height: 17px;
+    max-width: 600px;
+    min-width: 600px;
 }
 
 #btn-envoyer {
@@ -39,8 +51,9 @@ input, textarea {
     float: right;
     transition: background-color 0.3s;
 }
+/*--------------------*/
 
-/* Style pour centrer les boutons dans la modale */
+/*-----FENÊTRE MODALE-----*/
 .choix-jeu {
     display: flex;
     justify-content: center;
@@ -53,17 +66,7 @@ input, textarea {
     font-weight: bold;
 }
 
-.contenu-page{
-    padding-bottom: 20px;
-}
-
-textarea {
-  max-height: 400px;
-  min-height: 17px;
-  max-width: 600px;
-  min-width: 600px;
-}
-
 .modale{
     max-width: 600px;
 }
+/*------------------------*/

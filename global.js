@@ -1,5 +1,3 @@
-// header
-// menu + horloge + clic logo + navigation + loader + presentation equipe (demande)
 function ajustementcontenu(){
     if (document.querySelector(".menu-nav") && document.querySelector(".contenu-page")){
         document.querySelector(".contenu-page").style.paddingTop = document.querySelector(".menu-nav").offsetHeight + "px";
@@ -12,44 +10,42 @@ window.addEventListener("resize",ajustementcontenu);
 // LOADER -------------------------------------------------------------------------------------------------------
 let angle = 0;
 let loaderInterval;
-const icon = document.getElementById('icon');
-const canvas = document.createElement('canvas');
+const icon = document.getElementById('icon'); // récupère l'icone
+const canvas = document.createElement('canvas'); // récupère le canvas
 canvas.width = 32;
 canvas.height = 32;
 const context = canvas.getContext('2d');
 
 function drawLoader() {
-    
-    // Nettoyer le canvas
+    // Nettoie le canvas
     context.clearRect(0, 0, 32, 32);
 
-    // Dessiner le cercle de chargement
+    // Dessine le cercle de chargement
     context.beginPath();
     context.arc(16, 16, 12, angle, angle + Math.PI * 1.5); // Un arc de 270 degrés
     context.strokeStyle = '#3498db'; // Couleur du loader
     context.lineWidth = 4;
     context.stroke();
 
-    // Mettre à jour l'icône avec le contenu du canvas
+    // Met à jour l'icône avec le contenu du canvas
     icon.href = canvas.toDataURL('image/png');
 
-    // Faire progresser l'angle pour l'animation
+    // Augmente l'angle pour l'animation
     angle += 0.01;
-    //loaderInterval = requestAnimationFrame(drawLoader);
     loaderInterval = setInterval(function(){
         drawLoader()},1);
 }
 // --------------------------------------------------------------------------------------------------------------
 
-// 
+// CHANGEMENT DE PAGE -------------------------------------------------------------------------------------------
 function delay(event){
     let body = document.body;
     let buttons = document.getElementsByTagName("button");
-    let loader = setInterval(
+    let loader = setInterval( 
         function(){
-            drawLoader();
-            body.classList.add("loader");
-            for (let button of buttons){
+            drawLoader(); // Dessine le loader dans l'icone de la page
+            body.classList.add("loader"); // ajoute la classe loader à toute la page
+            for (let button of buttons){ // ajoute la classe loader à tous les boutons
                 button.classList.add("loader");
             }
             clearInterval(loaderInterval);
@@ -57,12 +53,11 @@ function delay(event){
     );
     setTimeout(
         function(){
-            clearInterval(loader);
-            clearInterval(loaderInterval);
-            icon.href = "../img/logo.png";
+            clearInterval(loader); // stop le loader dans l'icone de la page
+            icon.href = "../img/logo.png"; // remet la bonne image dans l'icone
             let classe = event.target.classList;
-            window.location.href = `../${classe[0]}/${classe[0]}.html`;
-            console.log("L'ancienne couleur était : blanc, rgb(255, 255, 255) et la nouvelle est : vert, rgb(170, 212, 190)")
+            window.location.href = `../${classe[0]}/${classe[0]}.html`; // change de page
+            console.log("L'ancienne couleur était : blanc, rgb(255, 255, 255) et la nouvelle est : vert, rgb(170, 212, 190)");
             body.classList.remove("loader");
             for (let button of buttons){
                 button.classList.remove("loader");
@@ -116,8 +111,9 @@ function chrono(){
     let minutes = 0;
     setInterval(
         function(){
-            seconds++;
-            if (seconds<10){
+            seconds++; // augmente les secondes chaque seconde
+            // Affiche le chronomètre
+            if (seconds<10){ 
                 if (minutes<10){
                     document.getElementById("chrono").innerHTML = `0${minutes} : 0${seconds}`;
                 } else{
@@ -130,7 +126,8 @@ function chrono(){
                     document.getElementById("chrono").innerHTML = `${minutes} : ${seconds}`;
                 }
             }
-            if (seconds >= 59){
+            // Gère le passage à la minute suivante
+            if (seconds >= 59){ 
                 minutes++;
                 seconds = -1;
             }
@@ -139,7 +136,7 @@ function chrono(){
 }
 // --------------------------------------------------------------------------------------------------------------
 
-//FENÊTRE MODALE
+// FENÊTRE MODALE -----------------------------------------------------------------------------------------------
 function ouvrirModale(e) {
     e.preventDefault();
     const modal = document.getElementById("modal-tete");
@@ -159,7 +156,7 @@ document.getElementById("btn-non").onclick = function() {
 
 // --------------------------------------------------------------------------------------------------------------
 
-//FOOTER
+// FOOTER -------------------------------------------------------------------------------------------------------
 let nums ="";
 
 function numero(){
@@ -239,7 +236,8 @@ function main(){
     })
     //----------------------------------------------
     
-    chrono();
+    chrono(); // Démarre la chronomètre
+    // Ajoute la fonction delay à chaque bouton de redirection vers une autre page
     for (element of document.getElementsByClassName("a_propos")){
         element.addEventListener("click", delay);
     }
@@ -249,12 +247,12 @@ function main(){
     for (element of document.getElementsByClassName("contact")){
         element.addEventListener("click", delay);
     }
-
-    document.getElementById("btn-oui").addEventListener("click",delay); // le delay ne marche pas 
-
     for (element of document.getElementsByClassName("produit")){
         element.addEventListener("click", delay);
     }
+
+    document.getElementById("btn-oui").addEventListener("click",delay); // Ajoute la fonction delay à btn-oui pour accéder à la page presentation
+    
     init(); // appelle la fonction init
     setInterval( // début de l'intervalle
         function(){
