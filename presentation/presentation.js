@@ -132,7 +132,7 @@ document.getElementById("btn-sortie").addEventListener("click", function(){
     desactiverModeEdition(); //Appelle fonction qui ferme le mode édition
 });
 
-// Si l'utilisateur annul (même que les boutons annuler d'au dessus)
+// Si l'utilisateur annule (même que les boutons annuler d'au dessus)
 document.getElementById("btn-nevermind").addEventListener("click", function(){
     modaleSortie.style.display = 'none';
 });
